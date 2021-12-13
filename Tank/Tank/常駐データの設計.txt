@@ -1,0 +1,19 @@
+-- 常駐データの設計 --
+常駐データをクラスに書いておく
+class ResidentDataManager
+struct ResidentData
+
+IMGUIで操作できるようにしてみる
+GUI_ResidentDataEdit
+
+操作が完了した際に更新する方法
+	->シーンの再読み込みで対応
+	->GUIにReloadボタン付ける
+		->これについてはGUI_GameManagerでよさそう？
+
+なんせ無名名前空間とかで定数切るのがよくないかも
+それを解決するためにレベルデザイン時の可変データをGUI化
+
+将来的にはjson書き出しに挑戦したい。
+
+

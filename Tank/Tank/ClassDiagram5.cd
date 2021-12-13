@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BoxCollider">
+    <Position X="2" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAIAAAAACAAAAAAAQAAAAIQAAA=</HashCode>
+      <FileName>source\Component\Collider\BoxCollider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collider">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAEAAAAAAAgAAAQAAAAAAAAAIAAQAQAAAEQAAAA=</HashCode>
+      <FileName>source\Component\Collider\Collider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphereCollider">
+    <Position X="4.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAABIAAAAAAAAAAAAAAAAQAAAAiAAAA=</HashCode>
+      <FileName>source\Component\Collider\SphereCollider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAEAAABAgABAAAAAAAAAAAAIAAAAABCAAAAAAA=</HashCode>
+      <FileName>source\Component\Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ColliderType">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\Component\Collider\Collider.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

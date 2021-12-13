@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="iScene">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgABAgAAAAQAQAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>source\Scene\iScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConstantScene">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAEAAgABAAAAAAAABAQAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>source\Scene\ConstantScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneGame">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="iScene">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.074" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAAAAAgABAAAAAAAAAAAAAAAAAAACAIAAAAA=</HashCode>
+      <FileName>source\Scene\SceneGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager">
+    <Position X="6" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAkABIgAAAAAABAAAAQEAAAAAAAAAAAQ=</HashCode>
+      <FileName>source\Scene\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneTitle">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAAAAAgABgAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>source\Scene\SceneTitle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object">
+    <Position X="10.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAQAJAgCgAAAABAAAAAAAAEAAIAQAAAAAAAA=</HashCode>
+      <FileName>source\Objects\Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectManager">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAoAgGAAAAAAAAACAAAAABQIAAAAAAAAAA=</HashCode>
+      <FileName>source\Objects\ObjectManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component">
+    <Position X="15.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAEAAABAgABAAAAAAAAAAAAIAAAAABCAAAAAAA=</HashCode>
+      <FileName>source\Component\Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform">
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MIAAAAAAAAAAAAAAAAAAAAwQAABAAAAAAAAAAAAABIA=</HashCode>
+      <FileName>source\Component\Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SceneType">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAgAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>source\Scene\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ObjectTag">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\Objects\ObjectTag.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Layer" Collapsed="true">
+    <Position X="10.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAiAAIQAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>source\Component\Component.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

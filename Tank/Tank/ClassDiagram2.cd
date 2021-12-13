@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CPolygon">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEAAGAAAAAAgAAAAAoAAASAABAAAAAAQgAAEqCAAg=</HashCode>
+      <FileName>source\Component\Polygon\Polygon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAEAAABAgABAAAAAAAAAAAAIAAAAABCAAAAAAA=</HashCode>
+      <FileName>source\Component\Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PolygonManager">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAiABAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>source\MySystem\Polygon\PolygonManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PolygonShader">
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>source\Shader\Polygon\PolygonShader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iShader">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAQIAAgAAQIAAECIAICABAAIAAA=</HashCode>
+      <FileName>source\Shader\iShader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="POLYGON_G">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAIAAAIAAAAAAAAAAAAAAQAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>source\Shader\Polygon\PolygonShader.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ConstantBufferInfo" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\Shader\iShader.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Layer" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAiAAIQAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>source\Component\Component.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MakeID" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAABAAAAAAABAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\Shader\iShader.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConstantType" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\Shader\iShader.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

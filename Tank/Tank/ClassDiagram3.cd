@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SceneLoad">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAAIAAAAAAgABAAAIAAAAACAAACAAAACCAAAAAAA=</HashCode>
+      <FileName>source\Scene\SceneLoad.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelManager">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAQAAABBAEAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>source\MySystem\Model\ModelManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAABBgAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>source\MySystem\Texture\TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ModelID">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\MySystem\Model\ModelID.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TextureID">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>source\MySystem\Texture\TextureID.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>
