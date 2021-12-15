@@ -27,8 +27,8 @@ struct ResidentData
 	}PlayerData;
 	struct
 	{
-		float Speed = 0.3f;
-		int ShotRate = 120;
+		float Speed = 0.3f;	//敵スピード
+		int ShotRate = 120;	//敵攻撃間隔
 	}EnemyData;
 };
 

@@ -296,6 +296,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\IMGUI\GUI_SystemFlag.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\IMGUI\MyImGui.cpp" />
     <ClCompile Include="source\MySystem\Application.cpp">
       <SubType>
@@ -336,6 +340,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="source\MySystem\Resident\ResidentData.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\MySystem\Resident\ResidentFlag.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -555,6 +563,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\IMGUI\GUI_SystemFlag.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\IMGUI\MyImGui.h" />
     <ClInclude Include="source\IMGUI\GUI_CameraInfo.h">
       <SubType>
@@ -611,6 +623,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="source\MySystem\Resident\ResidentData.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\MySystem\Resident\ResidentFlag.h">
       <SubType>
       </SubType>
     </ClInclude>

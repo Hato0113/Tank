@@ -26,6 +26,7 @@
 #include "Component\Timeline\GameStartTL.h"
 #include "Component\Effect\Effect.h"
 #include "MySystem\Resident\ResidentData.h"
+#include "MySystem\Resident\ResidentFlag.h"
 
 SceneGame::SceneGame()
 {
@@ -128,10 +129,10 @@ void SceneGame::Update()
 
 	//-- debug --
 	//当たり判定の可視化 / 不可視化
-	static bool state = false;
-	if (KeyInput::GetKeyPush(VK_F2))
+	static bool state = ResidentFlagManager::GetData().SystemFlag.ShowCollider;
+	if (state != ResidentFlagManager::GetData().SystemFlag.ShowCollider)
 	{
-		state ^= 1;
+		state = ResidentFlagManager::GetData().SystemFlag.ShowCollider;
 		for (auto obj : manager->GetList())
 		{
 			Collider* pCol = obj->GetComponent<Collider>();
@@ -228,7 +229,7 @@ void SceneGame::TestStage()
 			}
 			for (int x = 0; x < width; x++)
 			{
-				make({ -160.0f + fieldSize * x,defY + fieldSize * z,-70.0f }, manager);
+				make({ -160.0f + fieldSize * x,defY + fieldSize * z,-78.0f }, manager);
 				make({ -160.0f + fieldSize * x,defY + fieldSize * z,150.0f }, manager);
 			}
 		}

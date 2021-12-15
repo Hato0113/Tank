@@ -8,6 +8,7 @@
 #include "Scene\SceneManager.h"
 #include "Component\Enemy\EnemyManager.h"
 #include "Component\Player\Weapon\NormalWeapon.h"
+#include "MySystem\Resident\ResidentFlag.h"
 
 BulletBase::~BulletBase()
 {
@@ -35,13 +36,19 @@ void BulletBase::Update()
 
 void BulletBase::OnCollisionEnter(Collider* other)
 {
-	return;
 	if (m_InvalidTime) return;
 
 	auto tag = other->parent->transform->GetTag();
 	if (tag == "Player" || tag == "Enemy" || tag == "Bullet")
-	//if (tag == "Enemy" || tag == "Bullet")
 	{
+		//-- –³“G’† --
+		if (ResidentFlagManager::GetData().GamePlay.Player.Invincible && tag == "Player")
+		{
+			parent->SetState(false);
+			return;
+		}
+		
+		//-- ’Êíˆ— --
 		parent->SetState(false);
 		other->parent->SetState(false);
 		if (tag == "Player")

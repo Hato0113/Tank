@@ -414,6 +414,12 @@
     <ClCompile Include="source\IMGUI\GUI_ResidentData.cpp">
       <Filter>MyIMGUISystem</Filter>
     </ClCompile>
+    <ClCompile Include="source\MySystem\Resident\ResidentFlag.cpp">
+      <Filter>MySystem\Resident</Filter>
+    </ClCompile>
+    <ClCompile Include="source\IMGUI\GUI_SystemFlag.cpp">
+      <Filter>MyIMGUISystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -703,6 +709,12 @@
     </ClInclude>
     <ClInclude Include="source\Component\Player\Bullet\BulletBase.h">
       <Filter>Component\Player\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MySystem\Resident\ResidentFlag.h">
+      <Filter>MySystem\Resident</Filter>
+    </ClInclude>
+    <ClInclude Include="source\IMGUI\GUI_SystemFlag.h">
+      <Filter>MyIMGUISystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@
 #include "DebugPause.h"
 #include "MySystem\KeyInput\KeyInput.h"
 #include "Scene\SceneManager.h"
+#include "MySystem\Resident\ResidentFlag.h"
 
 DebugPause::DebugPause()
 {
@@ -16,18 +17,20 @@ DebugPause::DebugPause()
 
 void DebugPause::Update()
 {
-	bool prev = m_IsPausing;
-	if (KeyInput::GetKeyPush(VK_F1))
-		m_IsPausing ^= 1;
+	static bool prev = ResidentFlagManager::GetData().SystemFlag.Pause;
 
-	if (prev == m_IsPausing) return;
+	if (prev == ResidentFlagManager::GetData().SystemFlag.Pause) return;
+	else
+	{
+		prev = ResidentFlagManager::GetData().SystemFlag.Pause;
+	}
 
 	//-- シーン内のPause状態を変更 --
 	auto manager = SceneManager::GetInstance().GetCurrentScene()->manager;
 	auto list = manager->GetList();
 	for (auto obj : list)
 	{
-		obj->SetPause(m_IsPausing);
+		obj->SetPause(prev);
 	}
 	//-- カメラは停止しない --
 	auto camera = manager->FindObjectWithTag("Camera");

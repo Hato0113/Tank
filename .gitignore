@@ -6,3 +6,4 @@ Tank/Assimp/
 Tank/DirectXTex/
 *.user
 Tank/Tank/x64/
+*.cso

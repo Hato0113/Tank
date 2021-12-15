@@ -19,6 +19,7 @@ using namespace IG;
 #include "GUI_CameraInfo.h"
 #include "GUI_Hierarchy.h"
 #include "GUI_ResidentData.h"
+#include "GUI_SystemFlag.h"
 
 //-- 静的メンバ --
 std::map<std::string, IG::Editor*> Launcher::m_WindowMap;
@@ -39,6 +40,8 @@ void IG::Launcher::Init()
 	m_WindowMap.insert(std::make_pair("Hierarchy", Hierarchy::Create()));
 	//-- 常駐データビュー生成 --
 	m_WindowMap.insert(std::make_pair("ResidentData", ResidentDataGUI::Create()));
+	//-- システムフラグビュー生成 --
+	m_WindowMap.insert(std::make_pair("ResidentFlag", ResidentFlagGUI::Create()));
 }
 
 /*
@@ -81,6 +84,7 @@ void IG::Launcher::Draw()
 			ImGui::MenuItem("CameraInfo", NULL, &m_WindowMap.at("CameraInfo")->m_Active);
 			ImGui::MenuItem("Hierarchy", NULL, &m_WindowMap.at("Hierarchy")->m_Active);
 			ImGui::MenuItem("ResidentData", NULL, &m_WindowMap.at("ResidentData")->m_Active);
+			ImGui::MenuItem("ResidentFlag", NULL, &m_WindowMap.at("ResidentFlag")->m_Active);
 			ImGui::EndMenu();
 		}
 		ImGui::EndMenuBar();
@@ -88,8 +92,6 @@ void IG::Launcher::Draw()
 		//-- デバッグコマンドリファレンス --
 		ImGui::Text("F1 / UpdateStop");
 		ImGui::Text("F2 / ShowCollider");
-		//ImGui::Text("F3 / SeTest");
-
 	}
 
 	ImGui::End();
@@ -101,7 +103,7 @@ void IG::Launcher::Draw()
 	}
 
 	//demo
-	ImGui::ShowDemoWindow();
+	//ImGui::ShowDemoWindow();
 }
 
 /*

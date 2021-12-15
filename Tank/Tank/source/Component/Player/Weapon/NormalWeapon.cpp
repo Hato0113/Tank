@@ -11,11 +11,12 @@
 #include "Component\Collider\SphereCollider.h"
 #include "Component\Player\PlayerOperation.h"
 #include "MySystem\Resident\ResidentData.h"
+#include "MySystem\Resident\ResidentFlag.h"
 
 NormalWeapon::NormalWeapon()
 {
 	WeaponBase::SetBulletType(BulletType::Normal);
-	m_DirayCount = m_Diray;
+	m_DirayCount = 0;
 	m_CurrentBullet = 0;
 	m_MaxBullet = ResidentDataManager::GetData().PlayerData.ShotMax;
 }
@@ -31,7 +32,8 @@ void NormalWeapon::Update()
 		break;
 	case WeaponMode::OpSelf:
 		if (m_DirayCount) m_DirayCount--;
-		if (KeyInput::GetKeyPush(VK_LBUTTON) && m_MaxBullet > m_CurrentBullet)
+		if ((KeyInput::GetKeyPush(VK_LBUTTON) || ResidentFlagManager::GetData().GamePlay.Player.AutoShot) &&
+			(m_MaxBullet > m_CurrentBullet || ResidentFlagManager::GetData().GamePlay.Player.InfiniteBullet))
 		{
 			if (!m_DirayCount)
 			{

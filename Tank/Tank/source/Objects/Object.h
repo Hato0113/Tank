@@ -41,7 +41,7 @@ public:
 	void SetPause(const bool pause) { m_Pause = pause; }
 	void SetScene(SceneBase* const scene) { m_Scene = scene; }
 	void SetVisible(const bool state) { m_Visible = state; }
-	void SetActive(const bool state) { m_Visible = state; }
+	void SetActive(const bool state) { m_Active = state; }
 
 	bool GetState() const { return m_State; }
 	bool GetPause() const { return m_Pause; }
