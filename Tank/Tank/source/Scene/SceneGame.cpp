@@ -267,9 +267,13 @@ void SceneGame::TestStage()
 		pObj->transform->SetPos({ 0.0f,14.0f,0.0f });
 		pObj->transform->SetTag("Player");
 		auto model = pObj->AddComponent<Model>();
-		model->SetModel(ModelManager::Get(ModelID::AirPlane));
+		model->SetModel(ModelManager::Get(ModelID::Tank_Body));
 		model->SetScale(4.0f);
-		model->SetRelativePos({ 0.0f,-9.0f,0.0f });
+		model->SetRelativePos({ 0.0f,-2.0f,0.0f });
+		auto head = pObj->AddComponent<Model>();
+		head->SetModel(ModelManager::Get(ModelID::Tank_Head));
+		head->SetScale(4.0f);
+		head->SetRelativePos({ 0.0f,3.0f,0.0f });
 		auto op = pObj->AddComponent<PlayerOperation>();
 		op->SetActive(false);
 		auto weapon = pObj->AddComponent<NormalWeapon>();

@@ -119,6 +119,8 @@ void SceneLoad::LoadModel()
 	ModelManager::Load(ModelID::EnemyPlane, "data/model/airplane/Enemy/Enemy2.obj");
 	ModelManager::Load(ModelID::LargeRock, "data/model/LargeRock/LargeRock.fbx");
 	ModelManager::Load(ModelID::SkyDome, "data/model/Sky/Sky01.fbx");
+	ModelManager::Load(ModelID::Tank_Head, "data/model/Tank/Tank_Head.fbx");
+	ModelManager::Load(ModelID::Tank_Body, "data/model/Tank/Tank_Body.fbx");
 
 	m_LoadProgress++;
 }

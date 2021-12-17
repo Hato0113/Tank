@@ -876,9 +876,9 @@ CAssimpMesh CAssimpModel::processMesh(ID3D11Device* pDevice, aiMesh* mesh)
 		memcpy(vertex.fBoneWeight, boneWeights, sizeof(boneWeights));
 
 		//-- 接ベクトル計算 --
-		vertex.vTangent.x = mesh->mTangents[i].x;
-		vertex.vTangent.y = mesh->mTangents[i].y;
-		vertex.vTangent.z = mesh->mTangents[i].z;
+		//vertex.vTangent.x = mesh->mTangents[i].x;
+		//vertex.vTangent.y = mesh->mTangents[i].y;
+		//vertex.vTangent.z = mesh->mTangents[i].z;
 
 		aVertex.push_back(vertex);
 	}

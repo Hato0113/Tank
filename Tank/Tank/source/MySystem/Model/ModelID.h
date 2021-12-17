@@ -22,4 +22,6 @@ enum class ModelID
 	EnemyPlane,
 	LargeRock,
 	SkyDome,
+	Tank_Head,
+	Tank_Body,
 };

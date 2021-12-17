@@ -179,7 +179,7 @@ void PlayerOperation::Rot()
 	Target.Identity();
 	DirectX::XMFLOAT3 dir;
 	dir = m_InputDir;
-	float theta = atan2f(dir.x, dir.z);	//目標
+	float theta = atan2f(dir.x, dir.z) - DirectX::XM_PIDIV2;	//目標
 	IG::MessageManager::DrawLog("theta : %.6f", theta);
 	Target.SetToRotateAxisAngle(Quaternion::Up, theta);
 	//-- 現在の向きを更新 --
