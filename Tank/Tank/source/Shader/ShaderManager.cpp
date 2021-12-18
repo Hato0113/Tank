@@ -90,13 +90,13 @@ void ShaderManager::Init()
 	Set("TX_LargeRock", normalTexTest);
 
 	//-- バッファのバインド --
-	AllResourceBind();
+	ConstantBufferBind();
 }
 
 /*
 	定数バッファ / テクスチャのバインド
 */
-void ShaderManager::AllResourceBind()
+void ShaderManager::ConstantBufferBind()
 {
 	auto dc = DX::DirectXManager::GetInstance().GetDeviceContext();
 	//-- 定数バッファバインド --

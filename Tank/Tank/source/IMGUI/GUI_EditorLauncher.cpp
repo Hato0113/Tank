@@ -74,7 +74,7 @@ void IG::Launcher::Draw()
 		{
 			if (ImGui::MenuItem("Exit"))
 			{
-				node::Application::SetGameFlag(false);
+				tank::Application::SetGameFlag(false);
 			}
 			ImGui::EndMenu();
 		}

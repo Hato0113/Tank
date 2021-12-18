@@ -33,6 +33,7 @@ void DebugPause::Update()
 		obj->SetPause(prev);
 	}
 	//-- カメラは停止しない --
-	auto camera = manager->FindObjectWithTag("Camera");
-	camera->SetPause(false);
+	auto camera = manager->FindObjectsWithTag("Camera");
+	for (auto obj : camera)
+		obj->SetPause(false);
 }

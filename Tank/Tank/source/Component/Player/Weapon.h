@@ -28,12 +28,16 @@ public:
 	virtual void Update() = 0;
 	void SetWeaponMode(WeaponMode mode) { m_Mode = mode; }
 	DirectX::XMFLOAT3 GetDir() { return m_Dir; }
+	void SetTankHead(Model* head) { m_Head = head; }
 	  
 protected:
 	void UpdateDirSelf();
 	void UpdateDirByMouse();	//マウスでのターゲット制御
 	void TargetPlayer();
 	void SetBulletType(BulletType type) { m_BulletType = type; }
+
+private:
+	void RotHead();	//砲身の回転
 
 protected:
 	DirectX::XMFLOAT3 m_Dir;
@@ -46,4 +50,5 @@ private:
 	float m_CurrentTheta;
 	float m_Time;
 	float m_Ratio;
+	Model* m_Head;
 };

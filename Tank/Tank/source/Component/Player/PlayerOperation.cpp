@@ -194,8 +194,5 @@ void PlayerOperation::Rot()
 
 void PlayerOperation::OnCollisionStay(Collider* col)
 {
-	//if (col->parent->transform->GetTag() == "Field")
-	//{
-	//	parent->transform->SetPos(m_PrevPos);
-	//}
+
 }

@@ -58,7 +58,7 @@ void TitleCursor::Update()
 			SceneManager::GetInstance().SetNextChange(SceneType::Game);
 			break;
 		case 1:
-			node::Application::SetGameFlag(false);
+			tank::Application::SetGameFlag(false);
 			break;
 		default:
 			break;

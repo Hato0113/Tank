@@ -68,7 +68,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrecInstance, LPTSTR lpCmdLi
 
 	//-- メッセージループ --
 	MSG msg;
-	while (node::Application::GetGameFlag())
+	while (tank::Application::GetGameFlag())
 	{
 		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
 			if (msg.message == WM_QUIT)

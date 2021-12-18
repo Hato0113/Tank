@@ -21,6 +21,10 @@ Model::Model()
 	m_useLightFlag = true;
 
 	Component::SetLayer(Layer::Back3D);
+
+	m_pLight = nullptr;
+	m_useParentRotate = true;
+	DirectX::XMStoreFloat4x4(&m_RotMat, DirectX::XMMatrixIdentity());
 }
 
 Model::~Model()
@@ -67,7 +71,10 @@ void Model::Draw()
 	XMMATRIX mWorld = XMMatrixIdentity();
 	XMFLOAT3 pos = parent->transform->GetPos();
 	XMFLOAT3 size = parent->transform->GetScale();
-	XMMATRIX mRot = parent->transform->GetEulerAngle().GetRotateMatrix();
+	XMMATRIX mRot = DirectX::XMMatrixIdentity();
+	if(m_useParentRotate)
+		mRot = parent->transform->GetEulerAngle().GetRotateMatrix();
+	mRot *= DirectX::XMLoadFloat4x4(&m_RotMat);
 	XMMATRIX mTrans = XMMatrixTranslation(pos.x + m_RelativePos.x , pos.y + m_RelativePos.y, pos.z + m_RelativePos.z);
 	XMMATRIX mScale = XMMatrixScaling(size.x * m_Scale.x, size.y * m_Scale.y, size.z * m_Scale.z);
 	mWorld = XMMatrixMultiply(mWorld, mScale);

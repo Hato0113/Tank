@@ -258,7 +258,7 @@ const HRESULT DirectXManager::Init()
 	m_pDevice->CreateDepthStencilState(&dsd2, &m_pDSS[1]);
 
 	//-- アプリケーション初期化 --
-	node::Application::Init();
+	tank::Application::Init();
 
 	return hr;
 }
@@ -271,7 +271,7 @@ void DirectXManager::Update()
 	//-- ウィンドウがトップに無ければ動かさない --
 	if (GetActiveWindow() != m_hWnd) return;
 	//-- アプリケーション更新 --
-	node::Application::Update();
+	tank::Application::Update();
 }
 /*
 	DirectX描画
@@ -284,7 +284,7 @@ void DirectXManager::Draw()
 	m_pDeviceContext->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	//-- アプリケーション描画 --
-	node::Application::Draw();
+	tank::Application::Draw();
 
 	//-- バッファ入れ替え --
 	m_pSwapChain->Present(m_uSyncInterval, 0);
@@ -296,7 +296,7 @@ void DirectXManager::Draw()
 void DirectXManager::Uninit()
 {
 	//-- アプリケーション終了 --
-	node::Application::Uninit();
+	tank::Application::Uninit();
 
 	//-- オブジェクト破棄 --
 	for (int i = 0; i < _countof(m_pDSS); i++)

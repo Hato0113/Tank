@@ -22,6 +22,8 @@ enum class ModelID
 	EnemyPlane,
 	LargeRock,
 	SkyDome,
-	Tank_Head,
-	Tank_Body,
+	Player_Head,
+	Player_Body,
+	Enemy01_Head,
+	Enemy01_Body,
 };

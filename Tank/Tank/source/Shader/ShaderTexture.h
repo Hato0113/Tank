@@ -18,7 +18,16 @@ public:
 	~ShaderTexture() = default;
 
 public:
+	/*
+		バインド関数
+		パラメータ無し
+	*/
 	void Bind();
+	
+	/*
+		テクスチャセット
+		引数 : テクスチャリソースビュー,バインドスロット
+	*/
 	void Set(ID3D11ShaderResourceView* tex, int slot);
 private:
 	ID3D11ShaderResourceView* m_Tex;

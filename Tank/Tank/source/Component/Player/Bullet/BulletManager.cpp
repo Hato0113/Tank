@@ -31,7 +31,7 @@ void BulletManager::Summon(XMFLOAT3 pos, XMFLOAT3 dir, BulletType type,ModelID m
 		//obj->SetLifeTime(500);
 		auto bullet = obj->AddComponent<NormalBullet>();
 		bullet->m_Dir = dir;
-		bullet->SetInvalidTime(20);
+		bullet->SetInvalidTime(10);
 		bullet->SetParentWeapon(pare);
 
 		auto model = obj->AddComponent<Model>();

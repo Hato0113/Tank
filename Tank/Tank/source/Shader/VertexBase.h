@@ -16,11 +16,21 @@ public:
 	VertexBase();
 	virtual ~VertexBase();
 public:
-	virtual void Bind() final;	//自身をデバイスに結びつけさせる
-	virtual HRESULT Make(std::string) = 0;	//シェーダー作成関数
+	/*
+		バインド関数
+		パラメータ無し
+	*/
+	virtual void Bind() final;
+
+	/*
+		シェーダー作成
+		引数 : ファイル名
+		戻り値 : 結果
+	*/
+	virtual HRESULT Make(std::string) = 0;
 
 protected:
 	ID3D11VertexShader* m_Shader;	//シェーダー本体
-	ID3D11InputLayout* m_Layout;
+	ID3D11InputLayout* m_Layout;	//レイアウト
 };
 

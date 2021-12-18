@@ -21,7 +21,7 @@ void EnemyManager::Summon(DirectX::XMINT2 pos, EnemyType type)
 	auto obj = Object::Create("Enemy");
 	obj->transform->SetTag("Enemy");
 	auto col = obj->AddComponent<SphereCollider>();
-	col->SetRadius(3.0f);
+	col->SetRadius(5.0f);
 
 	switch (type)
 	{
@@ -31,12 +31,19 @@ void EnemyManager::Summon(DirectX::XMINT2 pos, EnemyType type)
 		em->Setting(pos);
 		em->SetActive(false);
 		auto model = obj->AddComponent<Model>();
-		model->SetModel(ModelManager::Get(ModelID::EnemyPlane));
-		model->SetScale(4.0f);
+		model->SetModel(ModelManager::Get(ModelID::Enemy01_Body));
+		model->SetScale(5.0f);
+		model->SetRelativePos({ 0.0f,-2.0f,0.0f });
+		auto head = obj->AddComponent<Model>();
+		head->SetModel(ModelManager::Get(ModelID::Enemy01_Head));
+		head->SetUseParentRotate(false);
+		head->SetScale(6.0f);
+		head->SetRelativePos({ 0.0f,4.0f,0.0f });
 		auto wep = obj->AddComponent<NormalWeapon>();
 		wep->SetDiray(ResidentDataManager::GetData().EnemyData.ShotRate);
 		wep->SetWeaponMode(WeaponMode::Auto);
 		wep->SetActive(false);
+		wep->SetTankHead(head);
 	}
 	break;
 	default:

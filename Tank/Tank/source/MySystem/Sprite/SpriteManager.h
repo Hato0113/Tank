@@ -20,9 +20,26 @@
 class SpriteManager
 {
 public:
+	/*
+		初期化
+		パラメータ無し
+	*/
 	static void Init();
+	/*
+		終了処理
+		パラメータ無し
+	*/
 	static void Uninit();
+	/*
+		データロード
+		引数 : スプライトタイプ,ファイル名,テクスチャID,テクスチャサイズ
+	*/
 	static bool Load(SpriteType, std::string fileName,TextureID id,int texWidth = 512,int texHeight = 512);
+	/*
+		オブジェクト生成
+		引数 : スプライトタイプ,アイテム名,座標
+		戻り値 : オブジェクトポインタ
+	*/
 	static Object* Make(SpriteType, std::string ItemName, DirectX::XMFLOAT3 pos = { 0.0f,0.0f,0.0f });
 
 private:

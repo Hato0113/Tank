@@ -15,5 +15,10 @@ public:
 	AssimpVertex() = default;
 	virtual ~AssimpVertex() = default;
 public:
+	/*
+		シェーダー作成関数
+		引数 : ファイル名
+		戻り値 : 結果
+	*/
 	HRESULT Make(std::string) override;
 };

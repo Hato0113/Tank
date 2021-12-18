@@ -22,6 +22,8 @@ WeaponBase::WeaponBase()
 	m_CurrentTheta = 0.0f;
 	m_Time = 0.0f;
 	m_Ratio = 0.0f;
+
+	m_Head = nullptr;
 }
 
 void WeaponBase::UpdateDirSelf()
@@ -82,6 +84,9 @@ void WeaponBase::UpdateDirSelf()
 	DirectX::XMFLOAT4X4 mat;
 	DirectX::XMStoreFloat4x4(&mat, m_Current.GetRotateMatrix());
 	m_Dir = { mat._31,mat._32,mat._33 };
+	
+	//-- 砲身の回転 --
+	RotHead();
 }
 
 /*
@@ -112,9 +117,13 @@ void WeaponBase::UpdateDirByMouse()
 	m_Dir.x = dir.x;
 	m_Dir.z = -dir.y;
 
-
+	//-- 砲身の回転 --
+	RotHead();
 }
 
+/*
+	プレイヤーにターゲットを向ける
+*/
 void WeaponBase::TargetPlayer()
 {
 	auto player =  parent->GetScene()->manager->FindObjectWithTag("Player");
@@ -131,4 +140,24 @@ void WeaponBase::TargetPlayer()
 	vec = DirectX::XMVector3Normalize(vec);
 	DirectX::XMStoreFloat3(&dir, vec);
 	m_Dir = dir;
+
+	//-- 砲身の回転 --
+	RotHead();
+}
+
+/*
+	砲身の回転
+	パラメータ無し
+*/
+void WeaponBase::RotHead()
+{
+	//-- 砲台部分回転 --
+	if (!m_Head) return;
+	DirectX::XMMATRIX RotMat;
+	float theta = 0.0f;
+	theta = atan2f(m_Dir.x, m_Dir.z) - DirectX::XM_PIDIV2;
+	RotMat = DirectX::XMMatrixRotationY(theta);
+	DirectX::XMFLOAT4X4 temp;
+	DirectX::XMStoreFloat4x4(&temp, RotMat);
+	m_Head->SetRotMat(temp);
 }

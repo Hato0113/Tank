@@ -28,6 +28,8 @@ public:
 	void SetVertex(std::string name) { m_VertexShaderName = name; }
 	void SetPixel(std::string name) { m_PixelShaderName = name; }
 	void SetUseLight(bool state) { m_useLightFlag = state; }
+	void SetRotMat(DirectX::XMFLOAT4X4 mat) { m_RotMat = mat; }
+	void SetUseParentRotate(bool state) { m_useParentRotate = state; }
 
 	//-- ゲット関数 --
 public:
@@ -43,4 +45,6 @@ private:
 	std::string m_PixelShaderName;
 	bool m_useLightFlag;
 	DirectionalLight* m_pLight;
+	bool m_useParentRotate;			//親の回転行列を使用するか
+	DirectX::XMFLOAT4X4 m_RotMat;	//回転行列
 };

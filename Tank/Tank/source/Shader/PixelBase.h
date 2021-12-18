@@ -16,7 +16,15 @@ public:
 	PixelBase();
 	~PixelBase();
 public:
-	void Bind();	//自身をデバイスに結びつけさせる
+	/*
+		バインド関数
+		パラメータ無し
+	*/
+	void Bind();
+	/*
+		シェーダー作成
+		引数 : ファイル名
+	*/
 	HRESULT Make(std::string fileName);	//シェーダー作成関数
 
 private:

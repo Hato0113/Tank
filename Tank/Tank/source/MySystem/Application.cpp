@@ -6,7 +6,7 @@
 
 //-- include --
 #include "Application.hpp"
-using namespace node;
+using namespace tank;
 #include "Allocator\Allocator.hpp"
 #include "Scene\SceneManager.h"
 #include "Scene\SceneGame.h"
