@@ -17,7 +17,7 @@ public:
 	~NormalWeapon() = default;
 public:
 	void Update() override;
-	void SetDiray(int di) { m_Diray = di; }
+	void SetDiray(int di) { m_DirayCount = m_Diray = di; }
 	void SetBulletNum(int num) { m_MaxBullet = num; }
 	void DecBullet();	//弾削除時コールバック用
 

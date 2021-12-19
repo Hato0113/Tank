@@ -30,7 +30,9 @@ void NormalWeapon::Update()
 	{
 	case WeaponMode::None:
 		break;
+
 	case WeaponMode::OpSelf:
+		//-- 自身で操作する --
 		if (m_DirayCount) m_DirayCount--;
 		if ((KeyInput::GetKeyPush(VK_LBUTTON) || ResidentFlagManager::GetData().GamePlay.Player.AutoShot) &&
 			(m_MaxBullet > m_CurrentBullet || ResidentFlagManager::GetData().GamePlay.Player.InfiniteBullet))
@@ -51,6 +53,8 @@ void NormalWeapon::Update()
 		WeaponBase::UpdateDirByMouse();
 		break;
 	case WeaponMode::Auto:
+		//-- オートショット(敵が使用) --
+		if (ResidentFlagManager::GetData().GamePlay.Enemy.Shot == false) break;	//ショット禁止
 		if (m_DirayCount) m_DirayCount--;
 		if (!m_DirayCount)
 		{

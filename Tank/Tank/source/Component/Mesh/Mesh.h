@@ -69,6 +69,7 @@ public:
 	Mesh();
 	virtual ~Mesh();
 	void Draw() override;
+	void Update() override;
 
 public:
 	MATERIAL& GetMaterial() { return m_Material; }
@@ -91,6 +92,8 @@ public:
 	void SetLightUse(bool state) { useLight = state; }
 	void SetDrawFlag(bool state) { DrawFlag = state; }
 
+	void SetAlphaFadeTime(int time);
+
 private:
 	DirectX::XMFLOAT4X4 m_mtxTexture;		// テクスチャ マトリックス
 	ID3D11Buffer* m_pVertexBuffer;			// 頂点バッファインターフェースへのポインタ
@@ -104,4 +107,8 @@ private:
 	//-- 各種フラグ --
 	bool DrawFlag;
 	bool useLight;
+
+	//-- メッシュ操作用 --
+	int m_AlphaFadeTime;
+	int m_AlphaFadeMax;
 };

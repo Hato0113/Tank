@@ -9,6 +9,8 @@
 #include "Component\Enemy\EnemyManager.h"
 #include "Component\Player\Weapon\NormalWeapon.h"
 #include "MySystem\Resident\ResidentFlag.h"
+#include "MySystem\Effect\EffectManager.h"
+#include "Component\Effect\Effect.h"
 
 BulletBase::~BulletBase()
 {
@@ -51,6 +53,16 @@ void BulletBase::OnCollisionEnter(Collider* other)
 		//-- 通常処理 --
 		parent->SetState(false);
 		other->parent->SetState(false);
+
+		//-- エフェクト生成 --
+		auto obj = Object::Create("testEffect");
+		obj->transform->SetPos(parent->transform->GetPos());
+		auto effect = obj->AddComponent<Effect>();
+		effect->SetEffect(EffectManager::Get(EffectID::Hit01));
+		effect->SetScale(3.0f);
+		obj->SetLifeTime(120);
+		parent->GetScene()->manager->Add(obj);
+
 		if (tag == "Player")
 		{
 			SceneManager::GetInstance().SetNextChange(SceneType::Title);

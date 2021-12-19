@@ -136,6 +136,7 @@ void SceneLoad::LoadSprite()
 void SceneLoad::LoadEffect()
 {
 	EffectManager::Load(EffectID::Test01, u"data/Effect/oura.efk");
+	EffectManager::Load(EffectID::Hit01, u"data/Effect/Hit/Hit.efk");
 	m_LoadProgress++;
 }
 

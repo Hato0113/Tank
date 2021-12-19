@@ -22,6 +22,10 @@ Mesh::Mesh()
 	DrawFlag = true;
 	useLight = true;
 	Component::SetLayer(Layer::Back3D);
+
+	//-- メッシュ操作変数 --
+	m_AlphaFadeTime = -1;
+	m_AlphaFadeMax = 0;
 }
 
 Mesh::~Mesh()
@@ -38,9 +42,25 @@ Mesh::~Mesh()
 	}
 }
 
+void Mesh::Update()
+{
+	if (m_AlphaFadeTime > 0)
+	{
+		m_AlphaFadeTime--;
+		auto mat = GetMaterial();
+		mat.Diffuse.w = static_cast<float>(m_AlphaFadeTime) / m_AlphaFadeMax;
+		SetMaterial(mat);
+	}
+}
+
 void Mesh::Draw()
 {
 	if (!DrawFlag) return;
 
 	MeshManager::Draw(this);
+}
+
+void Mesh::SetAlphaFadeTime(int time)
+{
+	m_AlphaFadeMax = m_AlphaFadeTime = time;
 }

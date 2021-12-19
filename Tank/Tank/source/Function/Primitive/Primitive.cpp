@@ -307,10 +307,10 @@ Mesh* Primitive::CreateFieldPrimitive(Object* parent, PrimitiveInfoField info)
 	pVertex[2].normal = XMFLOAT3(0.0f, 1.0f, 0.0f);
 	pVertex[3].normal = XMFLOAT3(0.0f, 1.0f, 0.0f);
 
-	pVertex[0].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	pVertex[1].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	pVertex[2].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	pVertex[3].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	pVertex[0].color = info.m_Color;
+	pVertex[1].color = info.m_Color;
+	pVertex[2].color = info.m_Color;
+	pVertex[3].color = info.m_Color;
 
 	float u = static_cast<float>(info.m_Split.x);
 	float v = static_cast<float>(info.m_Split.y);

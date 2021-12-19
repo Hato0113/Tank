@@ -192,7 +192,18 @@ void PlayerOperation::Rot()
 	}
 }
 
+void PlayerOperation::OnCollisionEnter(Collider* col)
+{
+	if (col->parent->transform->GetTag() == "MapObject")
+	{
+		parent->transform->SetPos(m_PrevPos);
+	}
+}
+
 void PlayerOperation::OnCollisionStay(Collider* col)
 {
-
+	if (col->parent->transform->GetTag() == "MapObject")
+	{
+		parent->transform->SetPos(m_PrevPos);
+	}
 }

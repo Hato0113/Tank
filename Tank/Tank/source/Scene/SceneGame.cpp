@@ -27,6 +27,7 @@
 #include "Component\Effect\Effect.h"
 #include "MySystem\Resident\ResidentData.h"
 #include "MySystem\Resident\ResidentFlag.h"
+#include "MySystem\LevelManager\MapManager.h"
 
 SceneGame::SceneGame()
 {
@@ -149,7 +150,7 @@ void SceneGame::Update()
 		auto obj = Object::Create("testEffect");
 		obj->transform->SetPos({ 0.0f,30.0f,0.0f });
 		auto effect = obj->AddComponent<Effect>();
-		effect->SetEffect(EffectManager::Get(EffectID::Test01));
+		effect->SetEffect(EffectManager::Get(EffectID::Hit01));
 		effect->SetScale(3.0f);
 		obj->SetLifeTime(240);
 		manager->Add(obj);
@@ -298,6 +299,13 @@ void SceneGame::TestStage()
 		{
 			EnemyManager::Summon(poss[i], EnemyType::Normal);
 		}
+	}
+	{
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 2,2 }, MapObjectType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 2,3 }, MapObjectType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 10,6 }, MapObjectType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 11,6 }, MapObjectType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 12,6 }, MapObjectType::Wall));
 	}
 
 }

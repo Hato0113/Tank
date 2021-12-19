@@ -98,11 +98,13 @@ public:
 		m_Size = { 10.0f,10.0f };
 		m_pTex = nullptr;
 		m_Split = { 1,1 };
+		m_Color = { 1.0f,1.0f,1.0f,1.0f };
 	}
 	//-- メンバ変数 --
 	DirectX::XMFLOAT2 m_Size;
 	ID3D11ShaderResourceView* m_pTex;
 	DirectX::XMINT2 m_Split;
+	DirectX::XMFLOAT4 m_Color;
 private:
 	int m_IndexNum = 4;
 	int m_VertexNum = 4;

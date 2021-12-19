@@ -117,6 +117,11 @@ void ResidentFlagGUI::Draw()
 		if (s_flag.GamePlay.Enemy.Shot) IG::MessageManager::DrawSystemLog("EnemyShot true");
 		else IG::MessageManager::DrawSystemLog("EnemyShot false");
 	}
+	if (ImGui::Checkbox("Enemy : ShowTarget", &s_flag.GamePlay.Enemy.ShowTarget))
+	{
+		if (s_flag.GamePlay.Enemy.ShowTarget) IG::MessageManager::DrawSystemLog("EnemyShowTarget true");
+		else IG::MessageManager::DrawSystemLog("EnemyShowTarget false");
+	}
 
 	//-- データ再セット --
 	ResidentFlagManager::SetData(s_flag);

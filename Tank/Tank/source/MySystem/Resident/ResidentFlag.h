@@ -29,6 +29,7 @@ struct ResidentFlag
 		{
 			bool Move = true;	//敵行動
 			bool Shot = true;	//敵射撃
+			bool ShowTarget = false;
 		}Enemy;
 	}GamePlay;
 };

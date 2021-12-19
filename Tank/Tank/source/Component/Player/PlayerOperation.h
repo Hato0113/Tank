@@ -26,6 +26,7 @@ private:
 
 public:
 	void SetSize(float size);
+	void OnCollisionEnter(Collider* col) override;
 	void OnCollisionStay(Collider* col) override;
 
 	//-- メンバ変数 --

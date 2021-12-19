@@ -7,6 +7,9 @@
 //-- include --
 #include "MapManager.h"
 #include <vector>
+#include "Component\Model\Model.h"
+#include "Component\Collider\BoxCollider.h"
+#include "IMGUI\GUI_Message.h"
 
 //-- 静的メンバ --
 const DirectX::XMINT2 MapManager::MapSize = { 15,10 };
@@ -110,13 +113,38 @@ DirectX::XMINT2 MapManager::SearchTarget(DirectX::XMINT2 start, int len)
 			errorNum++;
 			continue;
 		}
+		//斜め移動可能か判定
+		flg = false;
+		for (auto pos : moveRoot)
+		{
+			DirectX::XMINT2 temp = pos;
+			temp.x += dirIndex[dir].x;
+			temp.y += dirIndex[dir].y;
+			if (temp.x < 0 || temp.x >= MapSize.x ||
+				temp.y < 0 || temp.y >= MapSize.y)
+				continue;
+			if (MapData[temp.y][temp.x].Block)
+			{
+				flg = true;
+				break;
+			}
+		}
+		if (flg)
+		{
+			i--;
+			errorNum++;
+			continue;
+		}
 		//移動先を保存
 		moveRoot.push_back(next);
 		current = next;
+		//IG::MessageManager::CreateSameMessageFlag = true;
+		//IG::MessageManager::DrawLog("pos : %d / %d",next.x,next.y);
+		//IG::MessageManager::CreateSameMessageFlag = false;
 	}
 
 	//-- 最終目標 --
-	DirectX::XMINT2 ret{0,0};
+	DirectX::XMINT2 ret = start;
 	if (moveRoot.size() != len + 1)
 		return ret;
 	else
@@ -125,4 +153,42 @@ DirectX::XMINT2 MapManager::SearchTarget(DirectX::XMINT2 start, int len)
 		return ret;
 	}
 	return ret;
+}
+
+/*
+	マップオブジェクト生成
+	引数 : マップ上座標,オブジェクトタイプ
+*/
+Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, MapObjectType type)
+{
+	//-- マップ情報登録 --
+	MapData[pos.y][pos.x].Block = true;
+
+	//-- オブジェクト生成 --
+	auto obj = Object::Create("MapObject");
+	switch (type)
+	{
+	case MapObjectType::Wall: {
+		obj->transform->SetPos(ConvertWorldPos(pos));
+		auto model = obj->AddComponent<Model>();
+		model->SetModel(ModelManager::Get(ModelID::Field02));
+		model->SetScale(10.0f);
+		Quaternion q;
+		q.Identity();
+		q.SetToRotateAxisAngle(Quaternion::Right, DirectX::XM_PI / 2);
+		EulerAngles ea;
+		ea.SetEulerAngles(q);
+		obj->transform->SetRotate(ea);
+		obj->transform->SetTag("MapObject");
+		auto col = obj->AddComponent<BoxCollider>();
+		col->SetSize(10.0f);
+	}
+		break;
+	case MapObjectType::Hole:
+		break;
+	default:
+		break;
+	}
+
+	return obj;
 }

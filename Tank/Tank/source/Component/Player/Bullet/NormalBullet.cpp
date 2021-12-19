@@ -33,6 +33,7 @@ void NormalBullet::Update()
 
 void NormalBullet::OnCollisionEnter(Collider* other)
 {
+	bool hit = false;
 	if (other->parent->transform->GetTag() == "Field")
 	{
 		//向きの変更
@@ -45,6 +46,29 @@ void NormalBullet::OnCollisionEnter(Collider* other)
 		{
 			m_Dir.z *= -1;
 		}
+		hit = true;
+	}
+	if (other->parent->transform->GetTag() == "MapObject")
+	{
+		DirectX::XMFLOAT3 dif;
+		auto otherPos = other->parent->transform->GetPos();
+		auto myPos = parent->transform->GetPos();
+		dif.x = otherPos.x - myPos.x;
+		dif.z = otherPos.z - myPos.z;
+		if (fabsf(dif.x) > fabsf(dif.z))
+		{
+			m_Dir.x *= -1;
+		}
+		else
+		{
+			m_Dir.z *= -1;
+		}
+		hit = true;
+	}
+
+	//-- ヒット回数カウント --
+	if (hit)
+	{
 		m_HitCount++;
 		if (m_HitCount >= MaxHit)
 			parent->SetState(false);	//オブジェクト破棄
