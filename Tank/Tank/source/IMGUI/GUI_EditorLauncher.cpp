@@ -20,6 +20,7 @@ using namespace IG;
 #include "GUI_Hierarchy.h"
 #include "GUI_ResidentData.h"
 #include "GUI_SystemFlag.h"
+#include "GUI_LevelEditor.h"
 
 //-- 静的メンバ --
 std::map<std::string, IG::Editor*> Launcher::m_WindowMap;
@@ -42,6 +43,8 @@ void IG::Launcher::Init()
 	m_WindowMap.insert(std::make_pair("ResidentData", ResidentDataGUI::Create()));
 	//-- システムフラグビュー生成 --
 	m_WindowMap.insert(std::make_pair("ResidentFlag", ResidentFlagGUI::Create()));
+	//-- レベルエディター生成 --
+	m_WindowMap.insert(std::make_pair("LevelEditor", LevelEditorGUI::Create()));
 }
 
 /*
@@ -85,6 +88,7 @@ void IG::Launcher::Draw()
 			ImGui::MenuItem("Hierarchy", NULL, &m_WindowMap.at("Hierarchy")->m_Active);
 			ImGui::MenuItem("ResidentData", NULL, &m_WindowMap.at("ResidentData")->m_Active);
 			ImGui::MenuItem("ResidentFlag", NULL, &m_WindowMap.at("ResidentFlag")->m_Active);
+			ImGui::MenuItem("LevelEditor", NULL, &m_WindowMap.at("LevelEditor")->m_Active);
 			ImGui::EndMenu();
 		}
 		ImGui::EndMenuBar();

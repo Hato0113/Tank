@@ -24,6 +24,7 @@ using namespace tank;
 #include "Shader\ShaderManager.h"
 #include "Effect\EffectManager.h"
 #include "Resident\ResidentData.h"
+#include "Scene\SceneLevelEditor.h"
 
 //-- 静的メンバ --
 bool Application::m_GameFlag = true;
@@ -61,6 +62,7 @@ void Application::Init()
 	SceneManager::GetInstance().Add(SceneType::Title, Allocator::Alloc<SceneTitle>());
 	SceneManager::GetInstance().Add(SceneType::Game, Allocator::Alloc<SceneGame>());
 	SceneManager::GetInstance().Add(SceneType::Load, Allocator::Alloc<SceneLoad>());
+	SceneManager::GetInstance().Add(SceneType::Edit, Allocator::Alloc<SceneLevelEditor>());
 	ConstantScene::GetInstance().Init();
 	SceneManager::GetInstance().SetFirst(SceneType::Load);
 }

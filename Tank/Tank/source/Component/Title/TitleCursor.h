@@ -25,5 +25,6 @@ public:
 private:
 	CPolygon* m_Poly;
 	int m_Current;
+	bool Selected = false;
 };
  

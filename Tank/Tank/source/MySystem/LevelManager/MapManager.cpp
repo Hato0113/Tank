@@ -159,7 +159,7 @@ DirectX::XMINT2 MapManager::SearchTarget(DirectX::XMINT2 start, int len)
 	マップオブジェクト生成
 	引数 : マップ上座標,オブジェクトタイプ
 */
-Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, MapObjectType type)
+Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 {
 	//-- マップ情報登録 --
 	MapData[pos.y][pos.x].Block = true;
@@ -168,7 +168,7 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, MapObjectType type)
 	auto obj = Object::Create("MapObject");
 	switch (type)
 	{
-	case MapObjectType::Wall: {
+	case PanelType::Wall: {
 		obj->transform->SetPos(ConvertWorldPos(pos));
 		auto model = obj->AddComponent<Model>();
 		model->SetModel(ModelManager::Get(ModelID::Field02));
@@ -183,8 +183,6 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, MapObjectType type)
 		auto col = obj->AddComponent<BoxCollider>();
 		col->SetSize(10.0f);
 	}
-		break;
-	case MapObjectType::Hole:
 		break;
 	default:
 		break;

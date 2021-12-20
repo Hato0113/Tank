@@ -32,7 +32,7 @@ private:
 public:
 	static void LoadFont();
 	static ID3D11ShaderResourceView* GetFont(char c);
-	static void CreateString(Object* parent, std::string, DirectX::XMFLOAT2, float scale = 1.0f,
+	static void CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale = 1.0f,
 		DirectX::XMFLOAT4 color = { 1.0f,1.0f,1.0f,1.0f });
 
 private:

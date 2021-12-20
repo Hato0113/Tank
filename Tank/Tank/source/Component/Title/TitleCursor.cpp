@@ -33,6 +33,7 @@ void TitleCursor::Init()
 
 void TitleCursor::Update()
 {
+	if (Selected) return;
 	//-- カーソル移動 --
 	if (KeyInput::GetKeyPush('S'))
 	{
@@ -63,6 +64,14 @@ void TitleCursor::Update()
 		default:
 			break;
 		}
+		Selected = true;
+	}
+
+	//-- ステージエディットモード --
+	if (KeyInput::GetKeyPush(VK_F1))
+	{
+		SceneManager::GetInstance().SetNextChange(SceneType::Edit);
+		Selected = true;
 	}
 	
 

@@ -115,7 +115,7 @@ void DirectXManager::SetZWrite(bool state)
 void DirectXManager::SetFPS(float fps)
 {
 	char fpsText[30];
-	sprintf_s(fpsText, "AT13B17羽鳥将司 / Fps:%.2f", fps);
+	sprintf_s(fpsText, "Tank / Fps:%.2f", fps);
 	SetWindowTextA(m_hWnd, (LPCSTR)fpsText);
 }
 

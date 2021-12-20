@@ -169,6 +169,9 @@
     <Filter Include="MySystem\Resident">
       <UniqueIdentifier>{5cb95737-f945-4a9e-b4d5-b0f98459be78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Edit">
+      <UniqueIdentifier>{272f2765-d66c-4ba9-9ea2-88c04c4e60f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -418,6 +421,18 @@
       <Filter>MySystem\Resident</Filter>
     </ClCompile>
     <ClCompile Include="source\IMGUI\GUI_SystemFlag.cpp">
+      <Filter>MyIMGUISystem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scene\SceneLevelEditor.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Edit\EditPanel.cpp">
+      <Filter>Component\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MySystem\LevelManager\LevelManager.cpp">
+      <Filter>MySystem\LevelManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\IMGUI\GUI_LevelEditor.cpp">
       <Filter>MyIMGUISystem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -714,6 +729,18 @@
       <Filter>MySystem\Resident</Filter>
     </ClInclude>
     <ClInclude Include="source\IMGUI\GUI_SystemFlag.h">
+      <Filter>MyIMGUISystem</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Scene\SceneLevelEditor.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Edit\EditPanel.h">
+      <Filter>Component\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MySystem\LevelManager\LevelManager.h">
+      <Filter>MySystem\LevelManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\IMGUI\GUI_LevelEditor.h">
       <Filter>MyIMGUISystem</Filter>
     </ClInclude>
   </ItemGroup>

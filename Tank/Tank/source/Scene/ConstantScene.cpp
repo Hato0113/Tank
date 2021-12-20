@@ -14,6 +14,8 @@
 #include "Component\Debug\DebugPause.h"
 #include "MySystem\Effect\EffectManager.h"
 
+#include "MySystem\LevelManager\LevelManager.h"
+
 
 ConstantScene::ConstantScene()
 {
@@ -49,6 +51,8 @@ void ConstantScene::Init()
 		obj->AddComponent<DebugPause>();
 		manager->Add(obj);
 	}
+
+	LevelManager::Init();
 }
 
 void ConstantScene::Update()
@@ -72,4 +76,6 @@ void ConstantScene::Uninit()
 	KeyInput::Uninit();
 	ColliderManager::GetInstance().Uninit();
 	Allocator::Free(manager);
+
+	LevelManager::Uninit();
 }

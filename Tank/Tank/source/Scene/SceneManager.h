@@ -17,6 +17,7 @@ enum class SceneType
 	Title = 0,
 	Game,
 	Load,
+	Edit,
 
 	TypeMax,
 };

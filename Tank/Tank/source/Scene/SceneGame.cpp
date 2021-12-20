@@ -301,11 +301,11 @@ void SceneGame::TestStage()
 		}
 	}
 	{
-		manager->Add(MapManager::GetInstance().CreateMapObject({ 2,2 }, MapObjectType::Wall));
-		manager->Add(MapManager::GetInstance().CreateMapObject({ 2,3 }, MapObjectType::Wall));
-		manager->Add(MapManager::GetInstance().CreateMapObject({ 10,6 }, MapObjectType::Wall));
-		manager->Add(MapManager::GetInstance().CreateMapObject({ 11,6 }, MapObjectType::Wall));
-		manager->Add(MapManager::GetInstance().CreateMapObject({ 12,6 }, MapObjectType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 2,2 }, PanelType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 2,3 }, PanelType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 10,6 }, PanelType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 11,6 }, PanelType::Wall));
+		manager->Add(MapManager::GetInstance().CreateMapObject({ 12,6 }, PanelType::Wall));
 	}
 
 }
