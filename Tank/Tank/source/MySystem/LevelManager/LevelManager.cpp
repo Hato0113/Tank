@@ -6,11 +6,19 @@
 
 //-- include --
 #define _CRT_SECURE_NO_WARNINGS
+#include "MySystem\DirectX.h"
 #include "LevelManager.h"
 #include "IMGUI\GUI_Message.h"
 #include "Scene\SceneManager.h"
 #include "Component\Edit\EditPanel.h"
 #include "MySystem\LevelManager\MapManager.h"
+#include "Scene\ConstantScene.h"
+#include "Component\Model\Model.h"
+#include "Component\Player\PlayerOperation.h"
+#include "Component\Player\Weapon\NormalWeapon.h"
+#include "MySystem\Resident\ResidentData.h"
+#include "Component\Player\TargetPoint\TargetPoint.h"
+#include "Component\Enemy\EnemyManager.h"
 
 namespace
 {
@@ -92,6 +100,7 @@ void LevelManager::SaveLevelData(std::string LevelName, LevelInfo info)
 	auto manager = SceneManager::GetInstance().GetCurrentScene()->manager;
 	auto panels = manager->FindObjectsWithTag("Panel");
 	int playerCount = 0;
+	int enemyCount = 0;
 	for (auto obj : panels)
 	{
 		auto panel = obj->GetComponent<EditPanel>();
@@ -100,12 +109,20 @@ void LevelManager::SaveLevelData(std::string LevelName, LevelInfo info)
 		info.type = panel->GetType();
 		if (info.type == PanelType::Player)
 			playerCount += 1;
+		if (info.type == PanelType::Enemy)
+			enemyCount += 1;
 		CurrentLoadData.push_back(info);
 	}
 	//-- プレイヤー数チェック --
 	if (playerCount != 1)
 	{
 		IG::MessageManager::DrawSystemLog(u8"プレイヤーが規定の数ではありません。");
+		return;
+	}
+	//-- 敵の数チェック --
+	if (enemyCount <= 0)
+	{
+		IG::MessageManager::DrawSystemLog(u8"敵の数が適切ではありません");
 		return;
 	}
 
@@ -197,6 +214,7 @@ void LevelManager::AttachToEditor()
 {
 	//-- 現在のパネルを置き換え --
 	{
+		if (SceneManager::GetInstance().GetCurrentSceneType() != SceneType::Edit) return;	//エディットモード以外は禁止
 		auto manager = SceneManager::GetInstance().GetCurrentScene()->manager;
 		auto panels = manager->FindObjectsWithTag("Panel");
 		
@@ -223,6 +241,62 @@ void LevelManager::AttachToEditor()
 */
 void LevelManager::AttachToMap()
 {
-	//todo
+	auto manager = SceneManager::GetInstance().GetCurrentScene()->manager;
+
+	for (auto data : CurrentLoadData)
+	{
+		switch (data.type)
+		{
+		//-- 何もない --
+		case PanelType::None: break;
+		//-- プレイヤー --
+		case PanelType::Player :
+		{
+			Object* obj = Object::Create("Player");
+			auto pos = MapManager::ConvertWorldPos(data.coord);
+			pos.y = 14.0f;
+			obj->transform->SetPos(pos);
+			obj->transform->SetTag("Player");
+			auto model = obj->AddComponent<Model>();
+			model->SetModel(ModelManager::Get(ModelID::Player_Body));
+			model->SetScale(5.0f);
+			model->SetRelativePos({ 0.0f,-2.0f,0.0f });
+			auto head = obj->AddComponent<Model>();
+			head->SetModel(ModelManager::Get(ModelID::Player_Head));
+			head->SetScale(6.0f);
+			head->SetRelativePos({ 0.0f,4.0f,0.0f });
+			head->SetUseParentRotate(false);
+			auto op = obj->AddComponent<PlayerOperation>();
+			op->SetActive(false);
+			auto weapon = obj->AddComponent<NormalWeapon>();
+			weapon->SetWeaponMode(WeaponMode::OpSelf);
+			weapon->SetActive(false);
+			weapon->SetDiray(ResidentDataManager::GetData().PlayerData.ShotRate);
+			weapon->SetTankHead(head);
+			auto target = obj->AddComponent<TargetPoint>();
+			auto col = obj->AddComponent<SphereCollider>();
+			col->SetRadius(5.0f);
+			col->SetSubjectState(true);
+			manager->Add(obj);
+		}break;
+		//-- 敵 --
+		case PanelType::Enemy :
+		{
+			EnemyManager::Summon(data.coord, EnemyType::Normal);
+		}break;
+		//-- 壁 --
+		case PanelType::Wall : 
+		{
+			manager->Add(MapManager::GetInstance().CreateMapObject(data.coord, PanelType::Wall));
+		}break;
+		//-- 穴 --
+		case PanelType::Hole : 
+		{
+
+		}break;
+		default:
+			break;
+		}
+	}
 }
 

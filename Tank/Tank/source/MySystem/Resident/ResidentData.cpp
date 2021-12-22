@@ -14,7 +14,7 @@ ResidentData ResidentDataManager::m_Data;
 
 namespace
 {
-	std::string SaveFileName = "ResidentData.resi";
+	std::string SaveFileName = "data/Status/ResidentData.resi";
 }
 
 /*

@@ -21,6 +21,8 @@ public:
 	void SetBulletNum(int num) { m_MaxBullet = num; }
 	void DecBullet();	//弾削除時コールバック用
 
+	int GetCurrentBulletNum() { return m_CurrentBullet; }
+
 private:
 	int m_Diray;
 	int m_DirayCount;

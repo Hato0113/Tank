@@ -172,6 +172,18 @@
     <Filter Include="Component\Edit">
       <UniqueIdentifier>{272f2765-d66c-4ba9-9ea2-88c04c4e60f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ClassDiagram">
+      <UniqueIdentifier>{f31429b9-736e-4329-953a-164ec5265864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MySystem\GameManager">
+      <UniqueIdentifier>{78cf5e27-1faa-47ef-88a0-2c6549c25dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\GameUI">
+      <UniqueIdentifier>{479dff4c-f2d8-44e6-a3f2-4d470f40d877}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\GameUI\BallUI">
+      <UniqueIdentifier>{2d366e7e-26c7-428f-9cb8-f648c8b0b820}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -434,6 +446,12 @@
     </ClCompile>
     <ClCompile Include="source\IMGUI\GUI_LevelEditor.cpp">
       <Filter>MyIMGUISystem</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MySystem\GameManager\GameManager.cpp">
+      <Filter>MySystem\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\GameUI\BallUI\BallUI.cpp">
+      <Filter>Component\GameUI\BallUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -743,14 +761,32 @@
     <ClInclude Include="source\IMGUI\GUI_LevelEditor.h">
       <Filter>MyIMGUISystem</Filter>
     </ClInclude>
+    <ClInclude Include="source\MySystem\GameManager\GameManager.h">
+      <Filter>MySystem\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\GameUI\BallUI\BallUI.h">
+      <Filter>Component\GameUI\BallUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
-    <None Include="ClassDiagram4.cd" />
-    <None Include="ClassDiagram5.cd" />
+    <None Include="ClassDiagram.cd">
+      <Filter>ClassDiagram</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd">
+      <Filter>ClassDiagram</Filter>
+    </None>
+    <None Include="ClassDiagram2.cd">
+      <Filter>ClassDiagram</Filter>
+    </None>
+    <None Include="ClassDiagram3.cd">
+      <Filter>ClassDiagram</Filter>
+    </None>
+    <None Include="ClassDiagram4.cd">
+      <Filter>ClassDiagram</Filter>
+    </None>
+    <None Include="ClassDiagram5.cd">
+      <Filter>ClassDiagram</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="source\hlsl\Polygon\PolygonVS.hlsl">

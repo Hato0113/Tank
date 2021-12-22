@@ -10,6 +10,8 @@ using namespace IG;
 #include "MySystem\main.h"
 #include "GUI_Message.h"
 #include "MySystem\LevelManager\LevelManager.h"
+#include "Scene\SceneManager.h"
+#include "MySystem\GameManager\GameManager.h"
 
 //-- 静的メンバ --
 LevelEditorGUI* LevelEditorGUI::m_LevelEditor = nullptr;
@@ -114,7 +116,8 @@ void LevelEditorGUI::Draw()
 	{
 		if (strcmp(LevelName, "") != 0)
 		{
-			LevelManager::AttachToMap();
+			GameManager::SetLevel(LevelName);
+			SceneManager::GetInstance().SetNextChange(SceneType::Game);
 		}
 	}
 

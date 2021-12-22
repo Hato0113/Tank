@@ -39,7 +39,6 @@ void ObjectManager::Update()
 		else
 		{
 			Object* pObj = (*it);
-			//pObj->~Object();
 			Allocator::Free(pObj);
 			it = m_ObjectList.erase(it);
 		}

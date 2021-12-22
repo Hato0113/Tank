@@ -12,8 +12,10 @@ using namespace DirectX;
 #include "NormalBullet.h"
 #include "Component\Model\Model.h"
 #include "Component\Collider\SphereCollider.h"
+#include "Component\Effect\Effect.h"
+#include "MySystem\Effect\EffectManager.h"
 
-void BulletManager::Summon(XMFLOAT3 pos, XMFLOAT3 dir, BulletType type,ModelID modelID, NormalWeapon* pare)
+void BulletManager::Summon(XMFLOAT3 pos, XMFLOAT3 dir, BulletType type, ModelID modelID, NormalWeapon* pare)
 {
 	auto obj = Object::Create("Bullet");
 	obj->transform->SetTag("Bullet");
@@ -59,5 +61,18 @@ void BulletManager::Summon(XMFLOAT3 pos, XMFLOAT3 dir, BulletType type,ModelID m
 	auto scene = SceneManager::GetInstance().GetCurrentScene();
 
 	scene->manager->Add(obj);
+
+	//-- マズルフラッシュ --
+	{
+		auto eff = Object::Create("testEffect");
+		auto effpos = pos;
+		effpos.y += 2.0f;
+		eff->transform->SetPos(effpos);
+		auto effect = eff->AddComponent<Effect>();
+		effect->SetEffect(EffectManager::Get(EffectID::MuzzleFlash));
+		effect->SetScale(2.0f);
+		eff->SetLifeTime(120);
+		scene->manager->Add(eff);
+	}
 }
 

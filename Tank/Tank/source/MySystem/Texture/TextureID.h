@@ -22,6 +22,7 @@ enum class TextureID
 	Loading02,
 	Loading03,
 	NormalLargeRock,
+	UI_Ball,
 };
 
 

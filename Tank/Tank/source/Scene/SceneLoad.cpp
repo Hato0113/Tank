@@ -99,6 +99,7 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::TitleLogo, "data/texture/Title/TitleLogo.png");
 	TextureManager::Load(TextureID::TargetCursor, "data/texture/Target/TargetCursor.png");
 	TextureManager::Load(TextureID::TargetPoint, "data/texture/Target/TargetPoint.png");
+	TextureManager::Load(TextureID::UI_Ball, "data/texture/gameUI/ui_Ball.png");
 	m_LoadProgress++;
 }
 
@@ -137,6 +138,9 @@ void SceneLoad::LoadEffect()
 {
 	EffectManager::Load(EffectID::Test01, u"data/Effect/oura.efk");
 	EffectManager::Load(EffectID::Hit01, u"data/Effect/Hit/Hit.efk");
+	EffectManager::Load(EffectID::Explosion, u"data/Effect/ExpEffect.efk");
+	EffectManager::Load(EffectID::HitEffect, u"data/Effect/HitEffect.efk");
+	EffectManager::Load(EffectID::MuzzleFlash, u"data/Effect/MuzzleFlash.efk");
 	m_LoadProgress++;
 }
 

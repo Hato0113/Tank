@@ -7,6 +7,8 @@
 //-- include --
 #include "NormalBullet.h"
 #include "IMGUI\GUI_Message.h"
+#include "MySystem\Effect\EffectManager.h"
+#include "Component\Effect\Effect.h"
 
 namespace
 {
@@ -72,6 +74,14 @@ void NormalBullet::OnCollisionEnter(Collider* other)
 		m_HitCount++;
 		if (m_HitCount >= MaxHit)
 			parent->SetState(false);	//オブジェクト破棄
+
+		auto obj = Object::Create("testEffect");
+		obj->transform->SetPos(parent->transform->GetPos());
+		auto effect = obj->AddComponent<Effect>();
+		effect->SetEffect(EffectManager::Get(EffectID::HitEffect));
+		effect->SetScale(2.0f);
+		obj->SetLifeTime(120);
+		parent->GetScene()->manager->Add(obj);
 	}
 
 	BulletBase::OnCollisionEnter(other);

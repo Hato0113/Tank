@@ -18,7 +18,7 @@ GameStartTL::GameStartTL()
 
 void GameStartTL::Update()
 {
-	
+
 	switch (m_CurrentTime)
 	{
 	case 60: {
@@ -34,16 +34,19 @@ void GameStartTL::Update()
 		FontManager::CreateString(obj, "Start", { -250.0f,0.0f }, 5.0f, { 1.0f,165.0f / 255.0f,0.0f,1.0f });
 		parent->GetScene()->manager->Add(obj);
 	}
-		   break;
+			break;
 	case 150:
 		//-- プレイヤーの操作開始 --
 	{
 		auto player = parent->GetScene()->manager->FindObjectWithTag("Player");
-		player->GetComponent<PlayerOperation>()->SetActive(true);
-		player->GetComponent<WeaponBase>()->SetActive(true);
+		if (player)
+		{
+			player->GetComponent<PlayerOperation>()->SetActive(true);
+			player->GetComponent<WeaponBase>()->SetActive(true);
+		}
 	}
 
-		//-- 敵行動開始 --
+	//-- 敵行動開始 --
 	{
 		auto enemys = parent->GetScene()->manager->FindObjectsWithTag("Enemy");
 		for (auto obj : enemys)
@@ -54,8 +57,8 @@ void GameStartTL::Update()
 	}
 
 
-		parent->SetState(false);
-		break;
+	parent->SetState(false);
+	break;
 	default:
 		break;
 	}

@@ -28,6 +28,8 @@
 #include "MySystem\Resident\ResidentData.h"
 #include "MySystem\Resident\ResidentFlag.h"
 #include "MySystem\LevelManager\MapManager.h"
+#include "MySystem\GameManager\GameManager.h"
+#include "Component\GameUI\BallUI\BallUI.h"
 
 SceneGame::SceneGame()
 {
@@ -262,6 +264,9 @@ void SceneGame::TestStage()
 
 		}
 	}
+	//-- オブジェクト生成 --
+	GameManager::CreateLevel();
+	/*
 	//-- プレイヤー召喚 --
 	{
 		Object* pObj = Object::Create("Player");
@@ -307,5 +312,12 @@ void SceneGame::TestStage()
 		manager->Add(MapManager::GetInstance().CreateMapObject({ 11,6 }, PanelType::Wall));
 		manager->Add(MapManager::GetInstance().CreateMapObject({ 12,6 }, PanelType::Wall));
 	}
+	*/
 
+	//-- UI生成 --
+	{
+		auto obj = Object::Create("ballUI");
+		obj->AddComponent<BallUI>();
+		manager->Add(obj);
+	}
 }

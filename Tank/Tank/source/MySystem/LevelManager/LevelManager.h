@@ -22,9 +22,6 @@ enum class PanelType : int
 	Hole = 25,
 };
 
-
-
-
 //-- クラス定義 --
 class LevelManager
 {
