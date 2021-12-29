@@ -1,8 +1,8 @@
-ï»¿//{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ ã§ç”Ÿæˆã•ã‚ŒãŸã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
-// DX11Game.rc ã§ä½¿ç”¨
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ ‚Å¶¬‚³‚ê‚½ƒCƒ“ƒNƒ‹[ƒh ƒtƒ@ƒCƒ‹B
+// Tank.rc ‚Åg—p
 //
-#define IDI_MAINFRM                     101
+#define IDB_BITMAP1                     101
 
 // Next default values for new objects
 // 

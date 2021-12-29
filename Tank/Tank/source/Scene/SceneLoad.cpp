@@ -100,6 +100,8 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::TargetCursor, "data/texture/Target/TargetCursor.png");
 	TextureManager::Load(TextureID::TargetPoint, "data/texture/Target/TargetPoint.png");
 	TextureManager::Load(TextureID::UI_Ball, "data/texture/gameUI/ui_Ball.png");
+	TextureManager::Load(TextureID::UI_TankBlue, "data/texture/gameUI/icon_Blue.png");
+	TextureManager::Load(TextureID::UI_TankRed, "data/texture/gameUI/icon_Red.png");
 	m_LoadProgress++;
 }
 

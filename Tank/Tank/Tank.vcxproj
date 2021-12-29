@@ -218,6 +218,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\Component\GameUI\TankUI\EnemyTankUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\Component\Light\DirectionalLight.cpp">
       <SubType>
       </SubType>
@@ -454,6 +458,7 @@
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="source\Allocator\Allocator.hpp" />
     <ClInclude Include="source\Allocator\iMemoryAllocator.hpp" />
     <ClInclude Include="source\Allocator\LinearAllocator.h" />
@@ -503,6 +508,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="source\Component\GameUI\BallUI\BallUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\GameUI\TankUI\EnemyTankUI.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -748,20 +757,11 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="source\System\AssimpModel.h" />
-    <ClInclude Include="source\System\resource.h" />
     <ClInclude Include="source\System\Shader.h" />
     <ClInclude Include="source\System\Sound.h" />
     <ClInclude Include="source\System\SoundData.h" />
     <ClInclude Include="source\System\SoundData.hpp" />
     <ClInclude Include="source\System\Texture.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
-    <None Include="ClassDiagram4.cd" />
-    <None Include="ClassDiagram5.cd" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="source\hlsl\AssimpBumpPS.hlsl">
@@ -864,12 +864,14 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="shader設計.txt" />
-    <Text Include="常駐データの設計.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Library Include="source\MySystem\Effect\Effekseer\Effekseer.lib" />
     <Library Include="source\MySystem\Effect\Effekseer\EffekseerRendererDX11.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tank.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\icon_Blue.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

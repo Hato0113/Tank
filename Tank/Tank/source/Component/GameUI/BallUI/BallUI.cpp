@@ -36,6 +36,7 @@ void BallUI::Init()
 		poly->SetPos({ polygonDefPos.x + space * i,polygonDefPos.y });
 		poly->SetTex(TextureManager::Get(TextureID::UI_Ball));
 		poly->SetSize(polygonSize);
+		poly->SetLayer(Layer::Front2D);
 		m_Balls.push_back(poly);
 	}
 }
@@ -60,7 +61,7 @@ void BallUI::Update()
 		const float activeAlpha = 1.0f;
 		const float inactiveAlpha = 0.3f;
 		const int ActiveNum = m_PlayerWeapon->GetCurrentBulletNum();
-		const int BallMax = m_Balls.size();
+		const int BallMax = static_cast<int>(m_Balls.size());
 		for (int i = 0; i < m_Balls.size(); i++)
 		{
 			if (i < BallMax - ActiveNum)

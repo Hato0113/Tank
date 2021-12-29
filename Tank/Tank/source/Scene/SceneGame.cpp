@@ -30,6 +30,7 @@
 #include "MySystem\LevelManager\MapManager.h"
 #include "MySystem\GameManager\GameManager.h"
 #include "Component\GameUI\BallUI\BallUI.h"
+#include "Component\GameUI\TankUI\EnemyTankUI.h"
 
 SceneGame::SceneGame()
 {
@@ -318,6 +319,21 @@ void SceneGame::TestStage()
 	{
 		auto obj = Object::Create("ballUI");
 		obj->AddComponent<BallUI>();
+		manager->Add(obj);
+	}
+	{
+		auto obj = Object::Create("enemyUI");
+		obj->AddComponent<EnemyTankUI>();
+		manager->Add(obj);
+	}
+	{	//UI帯
+		auto obj = Object::Create("ui_Band");
+		auto poly = obj->AddComponent<CPolygon>();
+		poly->SetPos({ 0.0f,-315.0f });
+		poly->SetSize({ static_cast<float>(WindowInfo::m_ScreenWidth),90.0f });
+		poly->SetColor({ 0.2f,0.2f,0.2f });
+		poly->SetAlpha(0.6f);
+		poly->SetLayer(Layer::Back2D);
 		manager->Add(obj);
 	}
 }

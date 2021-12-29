@@ -184,6 +184,9 @@
     <Filter Include="Component\GameUI\BallUI">
       <UniqueIdentifier>{2d366e7e-26c7-428f-9cb8-f648c8b0b820}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\GameUI\TankUI">
+      <UniqueIdentifier>{d00f944a-4bd7-43d5-af78-cb010f2459a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -453,6 +456,9 @@
     <ClCompile Include="source\Component\GameUI\BallUI\BallUI.cpp">
       <Filter>Component\GameUI\BallUI</Filter>
     </ClCompile>
+    <ClCompile Include="source\Component\GameUI\TankUI\EnemyTankUI.cpp">
+      <Filter>Component\GameUI\TankUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -478,9 +484,6 @@
     </ClInclude>
     <ClInclude Include="imgui\imstb_truetype.h">
       <Filter>IMGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="source\System\resource.h">
-      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="source\System\Shader.h">
       <Filter>System</Filter>
@@ -767,26 +770,12 @@
     <ClInclude Include="source\Component\GameUI\BallUI\BallUI.h">
       <Filter>Component\GameUI\BallUI</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd">
-      <Filter>ClassDiagram</Filter>
-    </None>
-    <None Include="ClassDiagram1.cd">
-      <Filter>ClassDiagram</Filter>
-    </None>
-    <None Include="ClassDiagram2.cd">
-      <Filter>ClassDiagram</Filter>
-    </None>
-    <None Include="ClassDiagram3.cd">
-      <Filter>ClassDiagram</Filter>
-    </None>
-    <None Include="ClassDiagram4.cd">
-      <Filter>ClassDiagram</Filter>
-    </None>
-    <None Include="ClassDiagram5.cd">
-      <Filter>ClassDiagram</Filter>
-    </None>
+    <ClInclude Include="source\Component\GameUI\TankUI\EnemyTankUI.h">
+      <Filter>Component\GameUI\TankUI</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="source\hlsl\Polygon\PolygonVS.hlsl">
@@ -812,19 +801,21 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="shader設計.txt">
-      <Filter>memo</Filter>
-    </Text>
-    <Text Include="常駐データの設計.txt">
-      <Filter>memo</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <Library Include="source\MySystem\Effect\Effekseer\Effekseer.lib">
       <Filter>MySystem\Effect\Effekseer</Filter>
     </Library>
     <Library Include="source\MySystem\Effect\Effekseer\EffekseerRendererDX11.lib">
       <Filter>MySystem\Effect\Effekseer</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tank.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\icon_Blue.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
   </ItemGroup>
 </Project>
