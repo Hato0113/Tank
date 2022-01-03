@@ -17,7 +17,7 @@ const float MapManager::BlockSize = 20.0f;
 
 MapManager::MapManager()
 {
-	MapData = new MapInfo*[MapSize.y];
+	MapData = new MapInfo * [MapSize.y];
 	for (int y = 0; y < MapSize.y; y++)
 	{
 		MapData[y] = new MapInfo[MapSize.x];
@@ -66,7 +66,7 @@ DirectX::XMINT2 MapManager::SearchTarget(DirectX::XMINT2 start, int len)
 	}
 
 	const int dirMax = 4;
-	const DirectX::XMINT2 dirIndex[dirMax] = {{0,1},{1,0},{0,-1},{-1,0}};	//探索用
+	const DirectX::XMINT2 dirIndex[dirMax] = { {0,1},{1,0},{0,-1},{-1,0} };	//探索用
 
 	std::vector<DirectX::XMINT2> moveRoot;	//移動したルート保存用
 	moveRoot.push_back(start);
@@ -164,6 +164,13 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 	//-- マップ情報登録 --
 	MapData[pos.y][pos.x].Block = true;
 
+	const float WallColor[] =
+	{
+		1.0f,0.8f,0.6f,0.4f
+	};
+	const int ColorMax = _countof(WallColor);
+	const int Color = rand() % ColorMax;
+
 	//-- オブジェクト生成 --
 	auto obj = Object::Create("MapObject");
 	switch (type)
@@ -171,8 +178,9 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 	case PanelType::Wall: {
 		obj->transform->SetPos(ConvertWorldPos(pos));
 		auto model = obj->AddComponent<Model>();
-		model->SetModel(ModelManager::Get(ModelID::Field02));
+		model->SetModel(ModelManager::Get(ModelID::WoodBlock));
 		model->SetScale(10.0f);
+		model->SetDiffuse({ WallColor[Color],WallColor[Color],WallColor[Color],1.0f });
 		Quaternion q;
 		q.Identity();
 		q.SetToRotateAxisAngle(Quaternion::Right, DirectX::XM_PI / 2);
@@ -180,6 +188,25 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 		ea.SetEulerAngles(q);
 		obj->transform->SetRotate(ea);
 		obj->transform->SetTag("MapObject");
+		auto col = obj->AddComponent<BoxCollider>();
+		col->SetSize(10.0f);
+	}
+		break;
+	case PanelType::Niedle:
+	{
+		auto summonPos = ConvertWorldPos(pos);
+		summonPos.y -= 5.0f;
+		obj->transform->SetPos(summonPos);
+		auto model = obj->AddComponent<Model>();
+		model->SetModel(ModelManager::Get(ModelID::Niedle));
+		model->SetScale(10.0f);
+		Quaternion q;
+		q.Identity();
+		q.SetToRotateAxisAngle(Quaternion::Right, DirectX::XM_PI / 2);
+		EulerAngles ea;
+		ea.SetEulerAngles(q);
+		obj->transform->SetRotate(ea);
+		obj->transform->SetTag("MapObjectNoHit");
 		auto col = obj->AddComponent<BoxCollider>();
 		col->SetSize(10.0f);
 	}

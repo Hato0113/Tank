@@ -459,6 +459,12 @@
     <ClCompile Include="source\Component\GameUI\TankUI\EnemyTankUI.cpp">
       <Filter>Component\GameUI\TankUI</Filter>
     </ClCompile>
+    <ClCompile Include="source\Component\Polygon\PolygonFade.cpp">
+      <Filter>Component\Polygon</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Timeline\GameEndTL.cpp">
+      <Filter>Component\Timeline</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -775,6 +781,12 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Polygon\PolygonFade.h">
+      <Filter>Component\Polygon</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Timeline\GameEndTL.h">
+      <Filter>Component\Timeline</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

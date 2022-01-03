@@ -21,6 +21,7 @@ enum class FadeMode
 	None,
 	FadeIn,
 	FadeOut,
+	FadeDelete,
 };
 
 //-- クラス定義 --

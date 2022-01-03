@@ -271,6 +271,14 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\Component\Polygon\PolygonFade.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\Component\Timeline\GameEndTL.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\Component\Timeline\GameStartTL.cpp">
       <SubType>
       </SubType>
@@ -565,6 +573,14 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="source\Component\Polygon\Polygon.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Polygon\PolygonFade.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Timeline\GameEndTL.h">
       <SubType>
       </SubType>
     </ClInclude>

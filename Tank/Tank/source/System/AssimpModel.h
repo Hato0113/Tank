@@ -239,6 +239,8 @@ private:
 	double m_dCurrent;
 	double m_dLastPlaying;
 
+	DirectX::XMFLOAT4* m_pDiffuse = nullptr;
+
 	//static ID3D11InputLayout* m_pVertexLayout;
 	//static ID3D11VertexShader* m_pVertexShader;
 	//static ID3D11PixelShader* m_pPixelShader;
@@ -264,6 +266,8 @@ public:
 	DirectX::XMFLOAT4X4& GetWorldMatrix() { return m_mtxWorld; }
 	void SetMaterial(TAssimpMaterial* pMaterial = nullptr) { m_pMaterial = pMaterial; }
 	TAssimpMaterial* GetMaterial() { return m_pMaterial; }
+	void SetDiffuse(DirectX::XMFLOAT4 diffuse);
+	DirectX::XMFLOAT4* GetDiffuse() { return m_pDiffuse; }
 	void SetAnimIndex(int nAnimIndex);
 	UINT GetAnimCount();
 	double GetAnimDuration(int nAnimIndex = -1/* -1:åªç›ÇÃÉAÉjÉÅ */);

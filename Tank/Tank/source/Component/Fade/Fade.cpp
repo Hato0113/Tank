@@ -80,6 +80,10 @@ void Fade::SetUp(FadeMode mode)
 	case FadeMode::FadeOut:
 		m_CurrentTime = MaxTime;
 		break;
+	case FadeMode::FadeDelete:
+		m_Mode = FadeMode::None;
+		m_Event = FadeEvent::End;	//終わったことにする
+		m_Polygon->SetAlpha(0.0f);
 	default:
 		break;
 	}

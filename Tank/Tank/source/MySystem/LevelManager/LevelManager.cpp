@@ -290,9 +290,9 @@ void LevelManager::AttachToMap()
 			manager->Add(MapManager::GetInstance().CreateMapObject(data.coord, PanelType::Wall));
 		}break;
 		//-- 穴 --
-		case PanelType::Hole : 
+		case PanelType::Niedle : 
 		{
-
+			manager->Add(MapManager::GetInstance().CreateMapObject(data.coord, PanelType::Niedle));
 		}break;
 		default:
 			break;

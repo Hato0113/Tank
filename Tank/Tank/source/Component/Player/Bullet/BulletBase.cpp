@@ -11,6 +11,7 @@
 #include "MySystem\Resident\ResidentFlag.h"
 #include "MySystem\Effect\EffectManager.h"
 #include "Component\Effect\Effect.h"
+#include "Component\Timeline\GameEndTL.h"
 
 BulletBase::~BulletBase()
 {
@@ -65,11 +66,20 @@ void BulletBase::OnCollisionEnter(Collider* other)
 
 		if (tag == "Player")
 		{
-			SceneManager::GetInstance().SetNextChange(SceneType::Title);
+			//-- ƒvƒŒƒCƒ„[Ž€–S --
+			auto obj = Object::Create("EndTL");
+			obj->AddComponent<GameEndTL>(false);
+			parent->GetScene()->manager->Add(obj);
 		}
 		else if (tag == "Enemy")
 		{
-			EnemyManager::Kill(1);
+			if (EnemyManager::Kill(1))
+			{
+				//-- “G‘S–Å --
+				auto obj = Object::Create("EndTL");
+				obj->AddComponent<GameEndTL>(true);
+				parent->GetScene()->manager->Add(obj);
+			}
 		}
 		else if (tag == "Bullet")
 		{

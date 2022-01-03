@@ -15,6 +15,7 @@ public:
 	static void Init();
 	static void SetLevel(std::string LevelName);	//選択レベル変更
 	static void CreateLevel();						//レベルをオブジェクトとして生成
+	static std::string GetLevelName() { return m_CurrentSelect; }
 public:
 	static std::string m_CurrentSelect;		//現在選択されているレベル名
 };

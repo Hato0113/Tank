@@ -60,31 +60,12 @@ void SceneGame::Init()
 		manager->Add(pLight);
 	}
 
-	TestStage();
+	SummonStage();	//ステージ生成
 
 	{	//スタート時タイムライン
 		auto obj = Object::Create("timeline");
+		manager->Add(obj);
 		obj->AddComponent<GameStartTL>();
-		manager->Add(obj);
-	}
-
-	if(false){
-		auto obj = Object::Create("LargeRock");
-		obj->transform->SetPos({ 0.0f,30.0f,0.0f });
-		auto model = obj->AddComponent<Model>();
-		model->SetModel(ModelManager::Get(ModelID::LargeRock));
-		model->SetPixel("PS_AssimpBump");
-		//model->SetPixel("PS_Assimp");
-		manager->Add(obj);
-	}
-	if(false){
-		auto obj = Object::Create("LargeRock");
-		obj->transform->SetPos({ 60.0f,30.0f,0.0f });
-		auto model = obj->AddComponent<Model>();
-		model->SetModel(ModelManager::Get(ModelID::LargeRock));
-		//model->SetPixel("PS_AssimpBump");
-		model->SetPixel("PS_Assimp");
-		manager->Add(obj);
 	}
 
 	if(true){	//スカイドーム
@@ -170,7 +151,7 @@ void SceneGame::Uninit()
 	SceneBase::Uninit();
 }
 
-void SceneGame::TestStage()
+void SceneGame::SummonStage()
 {
 	/*
 		memo
@@ -180,6 +161,15 @@ void SceneGame::TestStage()
 	*/
 	//床
 	{
+		auto obj = Object::Create("field");
+		obj->transform->SetPos({ 0.0f,10.0f,50.0f });
+		PrimitiveInfoField info;
+		info.m_Size = { 200.0f,200.0f };
+		info.m_pTex = TextureManager::Get(TextureID::FieldTex);
+		Primitive::CreateFieldPrimitive(obj, info);
+		manager->Add(obj);
+	}
+	if(false){
 		DirectX::XMFLOAT3 defpos{ -140.0f,0.0f,-50.0f };
 		for (int y = 0; y < 10; y++)
 		{
@@ -205,12 +195,20 @@ void SceneGame::TestStage()
 		//-- ステージ作成テンプレ --
 		auto make = [](DirectX::XMFLOAT3 pos, ObjectManager* manager)
 		{
+			const float WallColor[] =
+			{
+				1.0f,0.8f,0.6f,0.4f
+			};
+			const int ColorMax = _countof(WallColor);
+			const int Color = rand() % ColorMax;
+
 			auto obj = Object::Create("wall");
 			obj->transform->SetPos({ pos.x,pos.y,pos.z });
 			obj->transform->SetTag("Field");
 			auto model = obj->AddComponent<Model>();
-			model->SetModel(ModelManager::Get(ModelID::SandGround));
+			model->SetModel(ModelManager::Get(ModelID::WoodBlock));
 			model->SetScale(10.0f);
+			model->SetDiffuse({ WallColor[Color],WallColor[Color],WallColor[Color],1.0f });
 			Quaternion q;
 			q.Identity();
 			q.SetToRotateAxisAngle(Quaternion::Right, DirectX::XM_PI / 2);
@@ -224,7 +222,7 @@ void SceneGame::TestStage()
 		const int height = 10;
 		const float defY = 0.0f;
 		const float fieldSize = 20.0f;
-		for (int z = 0; z < 2; z++)	//段数
+		for (int z = 1; z < 2; z++)	//段数
 		{
 			for (int y = 0; y < height; y++)
 			{

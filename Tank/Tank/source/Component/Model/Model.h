@@ -30,6 +30,10 @@ public:
 	void SetUseLight(bool state) { m_useLightFlag = state; }
 	void SetRotMat(DirectX::XMFLOAT4X4 mat) { m_RotMat = mat; }
 	void SetUseParentRotate(bool state) { m_useParentRotate = state; }
+	void SetDiffuse(DirectX::XMFLOAT4 dif) {
+		if (!m_useDiffuse) m_useDiffuse = true;
+		m_Diffuse = dif; 
+	}
 
 	//-- ゲット関数 --
 public:
@@ -47,4 +51,6 @@ private:
 	DirectionalLight* m_pLight;
 	bool m_useParentRotate;			//親の回転行列を使用するか
 	DirectX::XMFLOAT4X4 m_RotMat;	//回転行列
+	DirectX::XMFLOAT4 m_Diffuse;	//モデル色
+	bool m_useDiffuse = false;
 };

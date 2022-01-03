@@ -8,6 +8,7 @@
 #include "SceneManager.h"
 #include "Allocator/Allocator.hpp"
 #include "ConstantScene.h"
+#include "SceneGame.h"
 
 SceneManager::SceneManager()
 {
@@ -32,7 +33,10 @@ void SceneManager::Update()
 			m_pCurrentScene->manager = Allocator::Alloc<ObjectManager>();
 			m_pCurrentScene->manager->m_pScene = m_pCurrentScene;
 			m_pCurrentScene->Init();	//シーン初期化
-			m_Fade->SetUp(FadeMode::FadeOut);
+			if (dynamic_cast<SceneGame*>(m_pCurrentScene) != nullptr)
+				m_Fade->SetUp(FadeMode::FadeDelete);
+			else
+				m_Fade->SetUp(FadeMode::FadeOut);
 		}
 		if(m_Fade->GetEventTrigger() == FadeEvent::End)
 			m_pNextScene = nullptr;

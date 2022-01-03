@@ -24,7 +24,7 @@ namespace
 		{PanelType::Player,{1.0f,0.0f,0.0f}},
 		{PanelType::Enemy,{1.0f,1.0f,0.0f}},
 		{PanelType::Wall,{1.0f,0.0f,1.0f}},
-		{PanelType::Hole,{0.0f,1.0f,0.0f}},
+		{PanelType::Niedle,{0.0f,1.0f,0.0f}},
 	};
 }
 

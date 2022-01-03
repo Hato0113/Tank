@@ -198,7 +198,7 @@ ID3D11ShaderResourceView* FontManager::GetFont(char c)
 	return pShader;
 }
 
-void FontManager::CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale, DirectX::XMFLOAT4 color)
+void FontManager::CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale, DirectX::XMFLOAT4 color,bool isFront)
 {
 	const int Margin = 0;
 	parent->transform->SetTag("String");
@@ -211,6 +211,8 @@ void FontManager::CreateString(Object* parent, std::string str, DirectX::XMFLOAT
 		poly->SetSize({ m_CharInfo[s].Width * scale,m_CharInfo[s].Height * scale });
 		poly->SetColor({ color.x,color.y,color.z });
 		poly->SetAlpha(color.w);
+		if(isFront)
+			poly->SetLayer(Layer::Front2D);
 		offset.x += m_CharInfo[s].Width * scale + Margin / 2.0f;
 	}
 }

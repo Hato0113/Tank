@@ -62,11 +62,9 @@ void EnemyManager::Add(uint16_t add)
 	CurrentEnemy += add;
 }
 
-void EnemyManager::Kill(uint16_t kill)
+bool EnemyManager::Kill(uint16_t kill)
 {
 	CurrentEnemy -= kill;
-	if (CurrentEnemy == 0)
-	{
-		SceneManager::GetInstance().SetNextChange(SceneType::Title);
-	}
+	if (CurrentEnemy == 0) return true;
+	else return false;
 }

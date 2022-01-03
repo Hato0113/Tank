@@ -13,6 +13,7 @@
 #include <list>
 #include "Allocator/Allocator.hpp"
 #include "Component\Transform.h"
+#include <vector>
 
 //-- クラス定義 --
 class Component;
@@ -65,6 +66,9 @@ public:
 	template<class T>
 	T* GetComponent();
 
+	template<class T>
+	std::vector<T*> GetComponents();
+
 	template<class T, class ...Args>
 	T* AddComponent(Args && ...args);
 
@@ -95,6 +99,24 @@ T* Object::GetComponent()
 			return buff;
 	}
 	return nullptr;
+}
+
+/*
+	コンポーネント取得
+	コンポーネントのリストを取得
+*/
+template<class T>
+std::vector<T*> Object::GetComponents()
+{
+	std::vector<T*> ret;
+	for (auto com : m_ComponentList)
+	{
+		T* buff = dynamic_cast<T*>(com);
+		if (buff != nullptr)
+			ret.push_back(buff);
+	}
+
+	return ret;
 }
 
 /*

@@ -42,7 +42,7 @@ private:
 		テストステージ生成
 		パラメータ無し
 	*/
-	void TestStage();
+	void SummonStage();
 };
 
 

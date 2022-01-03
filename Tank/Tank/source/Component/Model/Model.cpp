@@ -25,6 +25,8 @@ Model::Model()
 	m_pLight = nullptr;
 	m_useParentRotate = true;
 	DirectX::XMStoreFloat4x4(&m_RotMat, DirectX::XMMatrixIdentity());
+
+	m_Diffuse = { 1.0f,1.0f,1.0f,1.0f };
 }
 
 Model::~Model()
@@ -92,6 +94,10 @@ void Model::Draw()
 
 	XMFLOAT4X4 WorldMat;
 	XMStoreFloat4x4(&WorldMat, mWorld);
+
+	//-- 色更新 --
+	if(m_useDiffuse)
+		m_pModel->SetDiffuse(m_Diffuse);
 
 	m_pModel->Draw(pDC, WorldMat, EByOpacity::eTransparentOnly);
 	m_pModel->Draw(pDC, WorldMat, EByOpacity::eOpacityOnly);

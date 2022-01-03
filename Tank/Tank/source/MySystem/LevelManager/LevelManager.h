@@ -19,7 +19,7 @@ enum class PanelType : int
 	Player = 1,
 	Enemy = 2,
 	Wall = 20,
-	Hole = 25,
+	Niedle = 25,
 };
 
 //-- クラス定義 --

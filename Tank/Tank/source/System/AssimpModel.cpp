@@ -534,11 +534,17 @@ void CAssimpMesh::Draw(ID3D11DeviceContext* pDC, XMFLOAT4X4& m44World, EByOpacit
 
 	// マテリアルの各要素をシェーダに渡す
 	CB_Material cbMat;
+	auto diff = m_pModel->GetDiffuse();
+
 	cbMat.Ambient = XMLoadFloat4(&pMaterial->Ka);
 	cbMat.Diffuse = XMLoadFloat4(&pMaterial->Kd);
 	cbMat.Specular = XMLoadFloat4(&pMaterial->Ks);
 	cbMat.Emissive = XMLoadFloat4(&pMaterial->Ke);
 	cbMat.Flags = XMLoadUInt4(&vFlags);
+	if (diff)
+	{
+		cbMat.Diffuse = XMLoadFloat4(diff);
+	}
 	ShaderManager::GetInstance().ConstantWrite("CB_Material", &cbMat);
 
 	// テクスチャをシェーダに渡す
@@ -577,6 +583,11 @@ CAssimpModel::CAssimpModel() : m_pMaterial(nullptr), m_pScene(nullptr), m_pAnima
 // デストラクタ
 CAssimpModel::~CAssimpModel()
 {
+	if (m_pDiffuse)
+	{
+		delete m_pDiffuse;
+		m_pDiffuse = nullptr;
+	}
 }
 
 // テクスチャ マトリックス設定
@@ -1288,4 +1299,17 @@ void CAssimpModel::GetVertex(aiNode* piNode, TAssimpVertex* pVertex, UINT& nVtxC
 	// 全ての子ノードを検索
 	for (UINT i = 0; i < piNode->mNumChildren; ++i)
 		GetVertex(piNode->mChildren[i], pVertex, nVtxCnt, pIndex, nIdxCnt);
+}
+
+/*
+	マテリアル色上書き
+	param : 色
+*/
+void CAssimpModel::SetDiffuse(DirectX::XMFLOAT4 diffuse)
+{
+	if (!m_pDiffuse)
+	{
+		m_pDiffuse = new DirectX::XMFLOAT4;
+	}
+	*m_pDiffuse = diffuse;
 }

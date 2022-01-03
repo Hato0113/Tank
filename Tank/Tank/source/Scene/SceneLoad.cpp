@@ -102,6 +102,11 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::UI_Ball, "data/texture/gameUI/ui_Ball.png");
 	TextureManager::Load(TextureID::UI_TankBlue, "data/texture/gameUI/icon_Blue.png");
 	TextureManager::Load(TextureID::UI_TankRed, "data/texture/gameUI/icon_Red.png");
+	TextureManager::Load(TextureID::FieldTex, "data/texture/Field/WhiteTiles07_1K_AO.png");
+	TextureManager::Load(TextureID::game_Start, "data/texture/gameUI/txtStart.png");
+	TextureManager::Load(TextureID::game_Game, "data/texture/gameUI/txtGame.png");
+	TextureManager::Load(TextureID::game_Clear, "data/texture/gameUI/txtClear.png");
+	TextureManager::Load(TextureID::game_Failed, "data/texture/gameUI/txtFailed.png");
 	m_LoadProgress++;
 }
 
@@ -126,6 +131,8 @@ void SceneLoad::LoadModel()
 	ModelManager::Load(ModelID::Player_Body, "data/model/Tank/player/PlayerBody.fbx");
 	ModelManager::Load(ModelID::Enemy01_Head, "data/model/Tank/enemy01/Enemy01Head.fbx");
 	ModelManager::Load(ModelID::Enemy01_Body, "data/model/Tank/enemy01/Enemy01Body.fbx");
+	ModelManager::Load(ModelID::WoodBlock, "data/model/WoodBlock/woodBlock.fbx");
+	ModelManager::Load(ModelID::Niedle, "data/model/Niedle/SilverNiedle.fbx");
 
 	m_LoadProgress++;
 }
