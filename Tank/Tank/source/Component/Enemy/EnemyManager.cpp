@@ -12,6 +12,8 @@
 #include "Component\Player\Weapon\NormalWeapon.h"
 #include "Component\Enemy\EnemyMovement.h"
 #include "MySystem\Resident\ResidentData.h"
+#include "Component\Enemy\EnemyAI\EnemyTaskManager.h"
+#include "Component\Enemy\EnemyAI\EnemyTaskWeapon.h"
 
 //-- 静的メンバ --
 int EnemyManager::CurrentEnemy = 0;
@@ -22,6 +24,9 @@ void EnemyManager::Summon(DirectX::XMINT2 pos, EnemyType type)
 	obj->transform->SetTag("Enemy");
 	auto col = obj->AddComponent<SphereCollider>();
 	col->SetRadius(5.0f);
+	auto ai = obj->AddComponent<EnemyTaskManager>();
+	auto wepTask = obj->AddComponent<EnemyTaskWeapon>();
+	ai->AddTask(wepTask);
 
 	switch (type)
 	{
@@ -44,6 +49,7 @@ void EnemyManager::Summon(DirectX::XMINT2 pos, EnemyType type)
 		wep->SetWeaponMode(WeaponMode::Auto);
 		wep->SetActive(false);
 		wep->SetTankHead(head);
+		wepTask->SetWeapon(wep);
 	}
 	break;
 	default:

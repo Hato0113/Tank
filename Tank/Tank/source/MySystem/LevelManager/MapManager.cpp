@@ -10,6 +10,7 @@
 #include "Component\Model\Model.h"
 #include "Component\Collider\BoxCollider.h"
 #include "IMGUI\GUI_Message.h"
+#include "MySystem\EnemyAIManager\EnemyAIManager.h"
 
 //-- 静的メンバ --
 const DirectX::XMINT2 MapManager::MapSize = { 15,10 };
@@ -176,7 +177,8 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 	switch (type)
 	{
 	case PanelType::Wall: {
-		obj->transform->SetPos(ConvertWorldPos(pos));
+		auto wPos = ConvertWorldPos(pos);
+		obj->transform->SetPos(wPos);
 		auto model = obj->AddComponent<Model>();
 		model->SetModel(ModelManager::Get(ModelID::WoodBlock));
 		model->SetScale(10.0f);
@@ -190,6 +192,14 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 		obj->transform->SetTag("MapObject");
 		auto col = obj->AddComponent<BoxCollider>();
 		col->SetSize(10.0f);
+		//-- AIマネージャへの設定 --
+		using minimap = EnemyAIManager::MiniMapObjectInfo;
+		minimap info;
+		info.ColliderType = minimap::eColliderType::Square;
+		info.Pos = {wPos.x,wPos.z};
+		info.Size = 10.0f;
+		info.Type = "Wall";
+		EnemyAIManager::GetInstance().AddList(info);
 	}
 		break;
 	case PanelType::Niedle:
@@ -209,6 +219,14 @@ Object* MapManager::CreateMapObject(DirectX::XMINT2 pos, PanelType type)
 		obj->transform->SetTag("MapObjectNoHit");
 		auto col = obj->AddComponent<BoxCollider>();
 		col->SetSize(10.0f);
+		//-- AIマネージャへの設定 --
+		using minimap = EnemyAIManager::MiniMapObjectInfo;
+		minimap info;
+		info.ColliderType = minimap::eColliderType::Square;
+		info.Pos = { summonPos.x,summonPos.z };
+		info.Size = 10.0f;
+		info.Type = "Niedle";
+		EnemyAIManager::GetInstance().AddList(info);
 	}
 		break;
 	default:

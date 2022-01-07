@@ -202,6 +202,18 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskBase.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskWeapon.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\Component\Enemy\EnemyManager.cpp">
       <SubType>
       </SubType>
@@ -335,6 +347,10 @@
     </ClCompile>
     <ClCompile Include="source\MySystem\DirectX.cpp" />
     <ClCompile Include="source\MySystem\Effect\EffectManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\MySystem\EnemyAIManager\EnemyAIManager.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -503,6 +519,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskBase.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskWeapon.h" />
     <ClInclude Include="source\Component\Enemy\EnemyManager.h">
       <SubType>
       </SubType>
@@ -651,6 +676,10 @@
     <ClInclude Include="source\MySystem\Effect\Effekseer\Effekseer.Modules.h" />
     <ClInclude Include="source\MySystem\Effect\Effekseer\Effekseer.SIMD.h" />
     <ClInclude Include="source\MySystem\Effect\Effekseer\EffekseerRendererDX11.h" />
+    <ClInclude Include="source\MySystem\EnemyAIManager\EnemyAIManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="source\MySystem\FontManager\FontManager.h">
       <SubType>
       </SubType>

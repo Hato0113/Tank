@@ -253,6 +253,7 @@ void LevelManager::AttachToMap()
 		case PanelType::Player :
 		{
 			Object* obj = Object::Create("Player");
+			obj->transform->SetTag("Player");
 			auto pos = MapManager::ConvertWorldPos(data.coord);
 			pos.y = 14.0f;
 			obj->transform->SetPos(pos);

@@ -52,7 +52,10 @@ public:
 	void SetVisible(const bool state) { m_Visible = state; }
 	void SetActive(const bool state) { m_Active = state; }
 
-	bool GetState() const { return m_State; }
+	bool GetState() const { 
+		if (!this) return false;
+		return m_State; 
+	}
 	bool GetPause() const { return m_Pause; }
 	SceneBase* GetScene() const { return m_Scene; }
 	bool GetVisible() const { return m_Visible; }

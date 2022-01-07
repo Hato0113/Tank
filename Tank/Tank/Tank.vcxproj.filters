@@ -187,6 +187,12 @@
     <Filter Include="Component\GameUI\TankUI">
       <UniqueIdentifier>{d00f944a-4bd7-43d5-af78-cb010f2459a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Enemy\EnemyAI">
+      <UniqueIdentifier>{502d2daf-dd52-44ec-8064-930ccad5eb0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MySystem\EnemyAIManager">
+      <UniqueIdentifier>{364c0e28-8193-4e06-8451-d63de66e9703}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -464,6 +470,18 @@
     </ClCompile>
     <ClCompile Include="source\Component\Timeline\GameEndTL.cpp">
       <Filter>Component\Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskBase.cpp">
+      <Filter>Component\Enemy\EnemyAI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskManager.cpp">
+      <Filter>Component\Enemy\EnemyAI</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MySystem\EnemyAIManager\EnemyAIManager.cpp">
+      <Filter>MySystem\EnemyAIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskWeapon.cpp">
+      <Filter>Component\Enemy\EnemyAI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -787,6 +805,18 @@
     </ClInclude>
     <ClInclude Include="source\Component\Timeline\GameEndTL.h">
       <Filter>Component\Timeline</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskManager.h">
+      <Filter>Component\Enemy\EnemyAI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskBase.h">
+      <Filter>Component\Enemy\EnemyAI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MySystem\EnemyAIManager\EnemyAIManager.h">
+      <Filter>MySystem\EnemyAIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskWeapon.h">
+      <Filter>Component\Enemy\EnemyAI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

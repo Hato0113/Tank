@@ -107,6 +107,10 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::game_Game, "data/texture/gameUI/txtGame.png");
 	TextureManager::Load(TextureID::game_Clear, "data/texture/gameUI/txtClear.png");
 	TextureManager::Load(TextureID::game_Failed, "data/texture/gameUI/txtFailed.png");
+	TextureManager::Load(TextureID::minimap_Block, "data/texture/minimap/minimap_Block.png");
+	TextureManager::Load(TextureID::minimap_Niedle, "data/texture/minimap/minimap_Niedle.png");
+	TextureManager::Load(TextureID::minimap_Player, "data/texture/minimap/minimap_Player.png");
+	TextureManager::Load(TextureID::minimap_Enemy, "data/texture/minimap/minimap_Enemy.png");
 	m_LoadProgress++;
 }
 

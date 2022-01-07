@@ -31,6 +31,7 @@
 #include "MySystem\GameManager\GameManager.h"
 #include "Component\GameUI\BallUI\BallUI.h"
 #include "Component\GameUI\TankUI\EnemyTankUI.h"
+#include "MySystem\EnemyAIManager\EnemyAIManager.h"
 
 SceneGame::SceneGame()
 {
@@ -106,6 +107,9 @@ void SceneGame::Init()
 		Primitive::CreateLinePrimitive(pAxis, axis);
 		manager->Add(pAxis);
 	}
+
+	//-- AIマネージャ初期化 --
+	EnemyAIManager::GetInstance().Init();
 }
 
 void SceneGame::Update()
@@ -139,6 +143,9 @@ void SceneGame::Update()
 		obj->SetLifeTime(240);
 		manager->Add(obj);
 	}
+
+	//-- 敵AI更新 --
+	EnemyAIManager::GetInstance().Update();
 }
 
 void SceneGame::Draw()

@@ -115,8 +115,7 @@ void Hierarchy::Draw()
 			auto pos = objList[m_CurrentSelect]->transform->GetPos();
 			ImGui::Text("Pos : %.3f / %.3f / %.3f", pos.x, pos.y, pos.z);
 			ImGui::Checkbox("Active", &active);
-			if(!active)
-				objList[m_CurrentSelect]->SetActive(active);
+			objList[m_CurrentSelect]->SetActive(active);
 			ImGui::Checkbox("Visible", &visible);
 			objList[m_CurrentSelect]->SetVisible(visible);
 		}

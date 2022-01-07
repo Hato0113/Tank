@@ -30,6 +30,10 @@ enum class TextureID
 	game_Start,
 	game_Clear,
 	game_Failed,
+	minimap_Block,
+	minimap_Niedle,
+	minimap_Player,
+	minimap_Enemy,
 };
 
 
