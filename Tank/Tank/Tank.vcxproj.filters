@@ -483,6 +483,9 @@
     <ClCompile Include="source\Component\Enemy\EnemyAI\EnemyTaskWeapon.cpp">
       <Filter>Component\Enemy\EnemyAI</Filter>
     </ClCompile>
+    <ClCompile Include="source\Component\Edit\EditType.cpp">
+      <Filter>Component\Edit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -817,6 +820,9 @@
     </ClInclude>
     <ClInclude Include="source\Component\Enemy\EnemyAI\EnemyTaskWeapon.h">
       <Filter>Component\Enemy\EnemyAI</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Edit\EditType.h">
+      <Filter>Component\Edit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

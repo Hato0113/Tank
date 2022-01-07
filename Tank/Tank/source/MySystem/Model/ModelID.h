@@ -26,6 +26,12 @@ enum class ModelID
 	Player_Body,
 	Enemy01_Head,
 	Enemy01_Body,
+	Enemy02_Head,
+	Enemy02_Body,
+	Enemy03_Head,
+	Enemy03_Body,
+	Enemy04_Head,
+	Enemy04_Body,
 	WoodBlock,
 	Niedle,
 };

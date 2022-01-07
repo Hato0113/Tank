@@ -9,6 +9,7 @@
 #include "MySystem\KeyInput\KeyInput.h"
 #include "Component\Mouse\MouseInfo.h"
 #include "Scene\ConstantScene.h"
+#include "EditType.h"
 
 namespace
 {
@@ -20,11 +21,14 @@ namespace
 	};
 	const std::vector<ChangePanelInfo> panelInfo
 	{
-		{PanelType::None,{1.0f,1.0f,1.0f}},
-		{PanelType::Player,{1.0f,0.0f,0.0f}},
-		{PanelType::Enemy,{1.0f,1.0f,0.0f}},
-		{PanelType::Wall,{1.0f,0.0f,1.0f}},
-		{PanelType::Niedle,{0.0f,1.0f,0.0f}},
+		{PanelType::None,{1.0f,1.0f,1.0f}},				//白
+		{PanelType::Player,{0.0f,0.0f,1.0f}},			//青
+		{PanelType::EnemyNormal,{1.0f,0.0f,1.0f}},		//マゼンタ
+		{PanelType::EnemyQuickly,{0.9f,0.75f,0.5f}},	//茶色
+		{PanelType::EnemyRapidFire,{1.0f,1.0f,0.0f}},	//黄色
+		{PanelType::EnemyStrong,{0.0f,1.0f,0.0f}},		//緑
+		{PanelType::Wall,{0.45f,0.37f,0.25f}},			//濃い茶色
+		{PanelType::Niedle,{0.7f,0.7f,0.7f}},			//灰色
 	};
 }
 
@@ -55,13 +59,19 @@ void EditPanel::Update()
 		if (mousePos.x > screen.x - PanelSize.x / 2 && mousePos.x < screen.x + PanelSize.x / 2 &&
 			mousePos.y > screen.y - PanelSize.y / 2 && mousePos.y < screen.y + PanelSize.y / 2)
 		{
-			m_CurrentType += 1;
-			if (panelInfo.size() <= m_CurrentType)
-				m_CurrentType = 0;
+			//m_CurrentType += 1;
+			//if (panelInfo.size() <= m_CurrentType)
+			//	m_CurrentType = 0;
 
 			//-- パネル情報変化 --
-			m_PanelType = panelInfo[m_CurrentType].type;
-			m_Polygon->SetColor(panelInfo[m_CurrentType].color);
+			//m_PanelType = panelInfo[m_CurrentType].type;
+			m_PanelType = EditType::GetCurrentSelect();
+			for (auto info : panelInfo)
+			{
+				if (info.type == m_PanelType)
+					m_Polygon->SetColor(info.color);
+			}
+			//m_Polygon->SetColor(panelInfo[m_CurrentType].color);
 		}
 	}
 	else return;

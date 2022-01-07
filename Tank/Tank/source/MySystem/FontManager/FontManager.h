@@ -9,6 +9,7 @@
 #include "MySystem\DirectX.h"
 #include <unordered_map>
 #include "Objects\Object.h"
+#include "Component\Polygon\Polygon.h"
 
 //-- クラス定義 --
 class FontManager
@@ -32,7 +33,7 @@ private:
 public:
 	static void LoadFont();
 	static ID3D11ShaderResourceView* GetFont(char c);
-	static void CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale = 1.0f,
+	static std::vector<CPolygon*> CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale = 1.0f,
 		DirectX::XMFLOAT4 color = { 1.0f,1.0f,1.0f,1.0f }, bool isFront = false);
 
 private:

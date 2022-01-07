@@ -9,6 +9,7 @@
 #include "Component\Edit\EditPanel.h"
 #include "MySystem\LevelManager\MapManager.h"
 #include "MySystem\FontManager\FontManager.h"
+#include "Component\Edit\EditType.h"
 /*
 	コンストラクタ
 */
@@ -56,7 +57,7 @@ void SceneLevelEditor::Init()
 
 	{	//エディターガイド
 		auto mana = SceneBase::manager;
-		auto make = [&mana](DirectX::XMFLOAT2 pos, DirectX::XMFLOAT3 color, std::string str)
+		auto make = [&mana](DirectX::XMFLOAT2 pos, DirectX::XMFLOAT3 color, std::string str,PanelType type)
 		{
 			auto offset = pos;
 			auto obj = Object::Create("guide");
@@ -64,15 +65,23 @@ void SceneLevelEditor::Init()
 			poly->SetPos(offset);
 			poly->SetSize({ 30.0f, 30.0f });
 			poly->SetColor(color);
-			FontManager::CreateString(obj, str, { offset.x + 30.0f,offset.y }, 0.5f);
+			auto polygonList = FontManager::CreateString(obj, str, { offset.x + 30.0f,offset.y }, 0.5f);
+			auto et = obj->AddComponent<EditType>();
+			et->SetStringPolygon(polygonList);
+			et->SetType(type);
+			et->SetPos(offset);
+			et->SetSize({ 30.0f,30.0f });
 			mana->Add(obj);
 		};
 
-		make({ 420.0f,300.0f }, { 1.0f,1.0f,1.0f }, " : None");
-		make({ 420.0f,260.0f }, { 1.0f,0.0f,0.0f }, " : Player");
-		make({ 420.0f,220.0f }, { 1.0f,1.0f,0.0f }, " : Enemy");
-		make({ 420.0f,180.0f }, { 1.0f,0.0f,1.0f }, " : Wall");
-		make({ 420.0f,140.0f }, { 0.0f,1.0f,0.0f }, " : Hole");
+		make({ 420.0f,300.0f }, { 1.0f,1.0f,1.0f }, " : None",PanelType::None);
+		make({ 420.0f,260.0f }, { 0.0f,0.0f,1.0f }, " : Player",PanelType::Player);
+		make({ 420.0f,220.0f }, { 1.0f,0.0f,1.0f }, " : E_Normal",PanelType::EnemyNormal);
+		make({ 420.0f,180.0f }, { 0.9f,0.75f,0.5f }, " : E_Quickly",PanelType::EnemyQuickly);
+		make({ 420.0f,140.0f }, { 1.0f,1.0f,0.0f }, " : E_Rapid",PanelType::EnemyRapidFire);
+		make({ 420.0f,100.0f }, { 0.0f,1.0f,0.0f }, " : E_Strong",PanelType::EnemyStrong);
+		make({ 420.0f, 60.0f }, { 0.45f,0.37f,0.25f }, " : Wall",PanelType::Wall);
+		make({ 420.0f, 20.0f }, { 0.7f,0.7f,0.7f }, " : Hole",PanelType::Niedle);
 	}
 }
 

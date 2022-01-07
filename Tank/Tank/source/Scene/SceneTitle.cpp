@@ -69,7 +69,7 @@ void SceneTitle::Init()
 	}
 	{
 		auto obj = Object::Create("fonttest");
-		FontManager::CreateString(obj, "TestFont", { 0.0f, 0.0f });
+		FontManager::CreateString(obj, "TestFont", { 0.0f, 0.0f },5.0f);
 		//auto poly = obj->AddComponent<CPolygon>();
 		//poly->SetSize({ 32.0f,64.0f });
 		//poly->SetTex(FontManager::GetFont('*'));

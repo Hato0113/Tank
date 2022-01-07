@@ -50,8 +50,8 @@ public:
 			Circle,
 		}ColliderType;
 		float Size = 5.0f;	//コライダーサイズ
-		Object* object;	//対応オブジェクトポインタ
-		CPolygon* polygon;	//描画用ポリゴン
+		Object* object = nullptr;	//対応オブジェクトポインタ
+		CPolygon* polygon = nullptr;	//描画用ポリゴン
 	};
 	/*
 		オブジェクト登録

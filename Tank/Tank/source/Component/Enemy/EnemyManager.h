@@ -10,7 +10,10 @@
 
 enum class EnemyType
 {
-	Normal,
+	Normal,	//普通
+	Quick,	//ちょっと速い
+	Rapid,	//ちょっと射撃が速い
+	Strong,	//強い
 };
 
 //-- クラス定義 --

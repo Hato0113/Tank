@@ -28,7 +28,9 @@ struct ResidentData
 	struct
 	{
 		float Speed = 0.3f;	//敵スピード
-		int ShotRate = 120;	//敵攻撃間隔
+		int ShotRate = 240;	//敵攻撃間隔
+		float Quickly = 0.5f;	//速い戦車
+		int RapidShotRate = 120;	//射撃間隔が速い
 	}EnemyData;
 };
 

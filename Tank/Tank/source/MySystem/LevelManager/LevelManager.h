@@ -17,7 +17,10 @@ enum class PanelType : int
 {
 	None = 0,
 	Player = 1,
-	Enemy = 2,
+	EnemyNormal = 2,
+	EnemyQuickly = 3,
+	EnemyRapidFire = 4,
+	EnemyStrong = 5,
 	Wall = 20,
 	Niedle = 25,
 };

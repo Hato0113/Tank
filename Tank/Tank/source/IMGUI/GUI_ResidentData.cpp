@@ -99,6 +99,8 @@ void ResidentDataGUI::Draw()
 
 	ImGui::InputFloat("EnemySpeed", &s_data.EnemyData.Speed);
 	ImGui::InputInt(u8"EnemyShotRate", &s_data.EnemyData.ShotRate);
+	ImGui::InputFloat("QuicklyEnemy", &s_data.EnemyData.Quickly);
+	ImGui::InputInt("EnemyRapidShotRate", &s_data.EnemyData.RapidShotRate);
 
 	ImGui::Separator();
 

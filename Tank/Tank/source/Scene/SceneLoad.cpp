@@ -135,6 +135,12 @@ void SceneLoad::LoadModel()
 	ModelManager::Load(ModelID::Player_Body, "data/model/Tank/player/PlayerBody.fbx");
 	ModelManager::Load(ModelID::Enemy01_Head, "data/model/Tank/enemy01/Enemy01Head.fbx");
 	ModelManager::Load(ModelID::Enemy01_Body, "data/model/Tank/enemy01/Enemy01Body.fbx");
+	ModelManager::Load(ModelID::Enemy02_Head, "data/model/Tank/enemy02/Enemy02Head.fbx");
+	ModelManager::Load(ModelID::Enemy02_Body, "data/model/Tank/enemy02/Enemy02Body.fbx");
+	ModelManager::Load(ModelID::Enemy03_Head, "data/model/Tank/enemy03/Enemy03Head.fbx");
+	ModelManager::Load(ModelID::Enemy03_Body, "data/model/Tank/enemy03/Enemy03Body.fbx");
+	ModelManager::Load(ModelID::Enemy04_Head, "data/model/Tank/enemy04/Enemy04Head.fbx");
+	ModelManager::Load(ModelID::Enemy04_Body, "data/model/Tank/enemy04/Enemy04Body.fbx");
 	ModelManager::Load(ModelID::WoodBlock, "data/model/WoodBlock/woodBlock.fbx");
 	ModelManager::Load(ModelID::Niedle, "data/model/Niedle/SilverNiedle.fbx");
 

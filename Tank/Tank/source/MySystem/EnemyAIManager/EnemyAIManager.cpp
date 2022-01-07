@@ -60,7 +60,7 @@ void EnemyAIManager::Init()
 			enemyID++;
 		}
 	}
-	{	//マップオブジェクト情報を描画するポリゴン
+	if(false){	//マップオブジェクト情報を描画するポリゴン
 		auto obj = Object::Create("minimapObj");
 		auto back = obj->AddComponent<CPolygon>();
 		back->SetSize({ 300.0f,200.0f });
@@ -119,7 +119,8 @@ void EnemyAIManager::Update()
 					{
 						auto pos = itr->object->transform->GetPos();
 						itr->Pos = { pos.x,pos.z };
-						itr->polygon->SetPos(itr->Pos);
+						if(itr->polygon)
+							itr->polygon->SetPos(itr->Pos);
 						flg = true;
 						break;
 					}
@@ -130,7 +131,8 @@ void EnemyAIManager::Update()
 				}
 				else
 				{
-					itr->polygon->SetState(false);	//ポリゴン削除
+					if(itr->polygon)
+						itr->polygon->SetState(false);	//ポリゴン削除
 					itr = m_MapObjectList.erase(itr);	//削除
 					IG::MessageManager::DrawSystemLog("enemyDeleted");
 				}
@@ -150,11 +152,13 @@ void EnemyAIManager::Update()
 				{
 					auto pos = itr->object->transform->GetPos();
 					itr->Pos = { pos.x,pos.z };
-					itr->polygon->SetPos(itr->Pos);
+					if(itr->polygon)
+						itr->polygon->SetPos(itr->Pos);
 				}
 				else
 				{
-					itr->polygon->SetState(false);
+					if(itr->polygon)
+						itr->polygon->SetState(false);
 					m_MapObjectList.erase(itr);	//非アクティブで削除
 					break;
 				}

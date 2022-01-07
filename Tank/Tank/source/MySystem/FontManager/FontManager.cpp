@@ -198,8 +198,9 @@ ID3D11ShaderResourceView* FontManager::GetFont(char c)
 	return pShader;
 }
 
-void FontManager::CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale, DirectX::XMFLOAT4 color,bool isFront)
+std::vector<CPolygon*> FontManager::CreateString(Object* parent, std::string str, DirectX::XMFLOAT2 pos, float scale, DirectX::XMFLOAT4 color,bool isFront)
 {
+	std::vector<CPolygon*> polygonList;
 	const int Margin = 0;
 	parent->transform->SetTag("String");
 	auto offset = pos;
@@ -213,6 +214,10 @@ void FontManager::CreateString(Object* parent, std::string str, DirectX::XMFLOAT
 		poly->SetAlpha(color.w);
 		if(isFront)
 			poly->SetLayer(Layer::Front2D);
+
+		polygonList.push_back(poly);
+
 		offset.x += m_CharInfo[s].Width * scale + Margin / 2.0f;
 	}
+	return polygonList;
 }

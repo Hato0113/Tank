@@ -109,7 +109,7 @@ void LevelManager::SaveLevelData(std::string LevelName, LevelInfo info)
 		info.type = panel->GetType();
 		if (info.type == PanelType::Player)
 			playerCount += 1;
-		if (info.type == PanelType::Enemy)
+		if (info.type == PanelType::EnemyNormal)
 			enemyCount += 1;
 		CurrentLoadData.push_back(info);
 	}
@@ -281,9 +281,21 @@ void LevelManager::AttachToMap()
 			manager->Add(obj);
 		}break;
 		//-- 敵 --
-		case PanelType::Enemy :
+		case PanelType::EnemyNormal :
 		{
 			EnemyManager::Summon(data.coord, EnemyType::Normal);
+		}break;
+		case PanelType::EnemyQuickly:
+		{
+			EnemyManager::Summon(data.coord, EnemyType::Quick);
+		}break;
+		case PanelType::EnemyRapidFire:
+		{
+			EnemyManager::Summon(data.coord, EnemyType::Rapid);
+		}break;
+		case PanelType::EnemyStrong:
+		{
+			EnemyManager::Summon(data.coord, EnemyType::Strong);
 		}break;
 		//-- 壁 --
 		case PanelType::Wall : 

@@ -52,6 +52,72 @@ void EnemyManager::Summon(DirectX::XMINT2 pos, EnemyType type)
 		wepTask->SetWeapon(wep);
 	}
 	break;
+	case EnemyType::Quick:
+	{
+		auto em = obj->AddComponent<EnemyMovement>();
+		em->Setting(pos, ResidentDataManager::GetData().EnemyData.Quickly,5);
+		em->SetActive(false);
+		auto model = obj->AddComponent<Model>();
+		model->SetModel(ModelManager::Get(ModelID::Enemy02_Body));
+		model->SetScale(5.0f);
+		model->SetRelativePos({ 0.0f,-2.0f,0.0f });
+		auto head = obj->AddComponent<Model>();
+		head->SetModel(ModelManager::Get(ModelID::Enemy02_Head));
+		head->SetUseParentRotate(false);
+		head->SetScale(6.0f);
+		head->SetRelativePos({ 0.0f,4.0f,0.0f });
+		auto wep = obj->AddComponent<NormalWeapon>();
+		wep->SetDiray(ResidentDataManager::GetData().EnemyData.ShotRate);
+		wep->SetWeaponMode(WeaponMode::Auto);
+		wep->SetActive(false);
+		wep->SetTankHead(head);
+		wepTask->SetWeapon(wep);
+	}
+	break;
+	case EnemyType::Rapid:
+	{
+		auto em = obj->AddComponent<EnemyMovement>();
+		em->Setting(pos);
+		em->SetActive(false);
+		auto model = obj->AddComponent<Model>();
+		model->SetModel(ModelManager::Get(ModelID::Enemy03_Body));
+		model->SetScale(5.0f);
+		model->SetRelativePos({ 0.0f,-2.0f,0.0f });
+		auto head = obj->AddComponent<Model>();
+		head->SetModel(ModelManager::Get(ModelID::Enemy03_Head));
+		head->SetUseParentRotate(false);
+		head->SetScale(6.0f);
+		head->SetRelativePos({ 0.0f,4.0f,0.0f });
+		auto wep = obj->AddComponent<NormalWeapon>();
+		wep->SetDiray(ResidentDataManager::GetData().EnemyData.RapidShotRate);
+		wep->SetWeaponMode(WeaponMode::Auto);
+		wep->SetActive(false);
+		wep->SetTankHead(head);
+		wepTask->SetWeapon(wep);
+	}
+	break;
+	case EnemyType::Strong :
+	{
+		auto em = obj->AddComponent<EnemyMovement>();
+		em->Setting(pos, ResidentDataManager::GetData().EnemyData.Quickly);
+		em->SetActive(false);
+		auto model = obj->AddComponent<Model>();
+		model->SetModel(ModelManager::Get(ModelID::Enemy04_Body));
+		model->SetScale(5.0f);
+		model->SetRelativePos({ 0.0f,-2.0f,0.0f });
+		auto head = obj->AddComponent<Model>();
+		head->SetModel(ModelManager::Get(ModelID::Enemy04_Head));
+		head->SetUseParentRotate(false);
+		head->SetScale(6.0f);
+		head->SetRelativePos({ 0.0f,4.0f,0.0f });
+		auto wep = obj->AddComponent<NormalWeapon>();
+		wep->SetDiray(ResidentDataManager::GetData().EnemyData.RapidShotRate);
+		wep->SetWeaponMode(WeaponMode::Auto);
+		wep->SetActive(false);
+		wep->SetTankHead(head);
+		wepTask->SetWeapon(wep);
+	}
+	break;
 	default:
 		break;
 	}
