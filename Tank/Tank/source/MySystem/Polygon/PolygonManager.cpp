@@ -155,7 +155,7 @@ void PolygonManager::Draw(CPolygon* polygon)
 	ShaderManager::GetInstance().ConstantWrite("CB_CameraLight", &cbCL);
 	//-- シェーダー設定 --
 	ShaderManager::GetInstance().BindVS("VS_Polygon");
-	ShaderManager::GetInstance().BindPS("PS_Polygon");
+	ShaderManager::GetInstance().BindPS(polygon->m_useShader.c_str());
 
 	//-- バッファ設定 --
 	ID3D11DeviceContext* pDC = DX::DirectXManager::GetInstance().GetDeviceContext();

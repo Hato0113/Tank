@@ -156,6 +156,9 @@ void SceneGame::Draw()
 void SceneGame::Uninit()
 {
 	SceneBase::Uninit();
+
+	//-- 敵AIマネージャー初期化 --
+	EnemyAIManager::GetInstance().Uninit();
 }
 
 void SceneGame::SummonStage()

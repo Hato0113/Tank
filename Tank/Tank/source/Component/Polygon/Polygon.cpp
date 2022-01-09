@@ -17,6 +17,7 @@ CPolygon::CPolygon()
 	m_AngleZ = 0.0f;
 	m_Alpha = 1.0f;
 	m_pTex = nullptr;
+	m_useShader = "PS_Polygon";
 
 	//-- レイヤー変更 --
 	Component::SetLayer(Layer::Back2D);

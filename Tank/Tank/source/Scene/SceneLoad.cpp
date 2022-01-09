@@ -111,6 +111,13 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::minimap_Niedle, "data/texture/minimap/minimap_Niedle.png");
 	TextureManager::Load(TextureID::minimap_Player, "data/texture/minimap/minimap_Player.png");
 	TextureManager::Load(TextureID::minimap_Enemy, "data/texture/minimap/minimap_Enemy.png");
+	TextureManager::Load(TextureID::Title_Circle, "data/texture/Title/Circle.png");
+	TextureManager::Load(TextureID::Title_Wood, "data/texture/Title/Wood.png");
+	TextureManager::Load(TextureID::Title_BG, "data/texture/Title/titlebg.png");
+	TextureManager::Load(TextureID::Title_tank01Right, "data/texture/Title/title_tank01Right.png");
+	TextureManager::Load(TextureID::Title_tank01Left, "data/texture/Title/title_tank01Left.png");
+	TextureManager::Load(TextureID::Title_tank02Right, "data/texture/Title/title_tank02Right.png");
+	TextureManager::Load(TextureID::Title_tank02Left, "data/texture/Title/title_tank02Left.png");
 	m_LoadProgress++;
 }
 

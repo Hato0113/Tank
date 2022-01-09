@@ -193,6 +193,15 @@
     <Filter Include="MySystem\EnemyAIManager">
       <UniqueIdentifier>{364c0e28-8193-4e06-8451-d63de66e9703}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Title\Ball">
+      <UniqueIdentifier>{cde2f6f9-7ab5-472e-a84b-a598c2e4f95f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Title\BallParticle">
+      <UniqueIdentifier>{c4832d02-348b-4d1e-8ce2-0610fe46a02b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Title\Tank">
+      <UniqueIdentifier>{ad77e621-7dbc-4d74-b650-659a1be4a963}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -485,6 +494,15 @@
     </ClCompile>
     <ClCompile Include="source\Component\Edit\EditType.cpp">
       <Filter>Component\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Title\Ball\TitleBall.cpp">
+      <Filter>Component\Title\Ball</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Title\BallParticle\BallParticle.cpp">
+      <Filter>Component\Title\BallParticle</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Component\Title\Tank\TitleTank.cpp">
+      <Filter>Component\Title\Tank</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -823,6 +841,15 @@
     </ClInclude>
     <ClInclude Include="source\Component\Edit\EditType.h">
       <Filter>Component\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Title\Ball\TitleBall.h">
+      <Filter>Component\Title\Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Title\BallParticle\BallParticle.h">
+      <Filter>Component\Title\BallParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Component\Title\Tank\TitleTank.h">
+      <Filter>Component\Title\Tank</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

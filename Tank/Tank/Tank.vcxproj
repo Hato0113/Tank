@@ -303,6 +303,18 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="source\Component\Title\BallParticle\BallParticle.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\Component\Title\Ball\TitleBall.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="source\Component\Title\Tank\TitleTank.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="source\Component\Title\TitleCursor.cpp">
       <SubType>
       </SubType>
@@ -622,6 +634,18 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="source\Component\Timeline\TimelineBase.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Title\BallParticle\BallParticle.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Title\Ball\TitleBall.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="source\Component\Title\Tank\TitleTank.h">
       <SubType>
       </SubType>
     </ClInclude>

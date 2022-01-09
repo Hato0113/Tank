@@ -58,4 +58,12 @@ struct CB_AssimpBone
 	}
 };
 
+/*
+	水面表現の情報
+*/
+struct CB_WaterSurface
+{
+
+};
+
 

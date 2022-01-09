@@ -26,7 +26,7 @@ public:
 
 	void Init();
 	void Update();
-	void Draw() {}
+	void Uninit();	//終了処理
 
 	/*
 		現在の情報から次のタスクを与える

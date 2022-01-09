@@ -168,6 +168,14 @@ void EnemyAIManager::Update()
 }
 
 /*
+	終了処理
+*/
+void EnemyAIManager::Uninit()
+{
+	m_MapObjectList.clear();
+}
+
+/*
 	現在の情報から次のタスクを与える
 	param : タスクのタイプ
 	param : 敵ID

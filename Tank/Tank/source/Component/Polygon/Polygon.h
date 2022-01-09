@@ -8,6 +8,7 @@
 //-- include --
 #include "Component\Component.h"
 #include "MySystem\Polygon\PolygonManager.h"
+#include <string>
 
 //-- クラス定義 --
 class CPolygon : public Component
@@ -28,6 +29,7 @@ public:
 	void SetAlpha(float a) { m_Alpha = a; }
 	void SetAngleZ(float angle) { m_AngleZ = angle; }
 	void SetTex(ID3D11ShaderResourceView* ptex) { m_pTex = ptex; }
+	void SetShader(std::string name) { m_useShader = name; }
 
 	//-- メンバ変数 --
 private:
@@ -39,4 +41,5 @@ private:
 	float m_AngleZ;
 	float m_Alpha;
 	ID3D11ShaderResourceView* m_pTex;
+	std::string m_useShader;
 };

@@ -11,6 +11,8 @@
 #include "MySystem\Texture\TextureManager.h"
 #include "Component\Title\TitleCursor.h"
 #include "MySystem\FontManager\FontManager.h"
+#include "Component\Title\Ball\TitleBall.h"
+#include "Component\Title\Tank\TitleTank.h"
 
 SceneTitle::SceneTitle()
 {
@@ -21,20 +23,66 @@ void SceneTitle::Init()
 {
 	SceneBase::Init();
 
-	{	
-		auto obj = Object::Create("test");
-		manager->Add(obj);
-		obj = Object::Create("test");
-		manager->Add(obj);
-	}
 	{	//背景
+		const DirectX::XMFLOAT2 pos[2] = {
+			{512.0f,0.0f},
+			{-512.0f,0.0f},
+		};
+		for (int i = 0; i < 2; i++)
+		{
+			auto obj = Object::Create("bgWood");
+			auto poly = obj->AddComponent<CPolygon>();
+			poly->SetPos(pos[i]);
+			poly->SetSize({ 1024.0f,1024.0f });
+			poly->SetTex(TextureManager::Get(TextureID::Title_Wood));
+			manager->Add(obj);
+		}
+	}
+	if(true){	//背景
 		auto obj = Object::Create("BG");
 		auto poly = obj->AddComponent<CPolygon>();
-		poly->SetSize({ static_cast<float>(WindowInfo::m_ScreenWidth),static_cast<float>(WindowInfo::m_ScreenHeight) });
-		poly->SetColor({ 0.0f,0.0f,0.0f });
+		poly->SetSize({ static_cast<float>(WindowInfo::m_ScreenWidth) - 100.0f,static_cast<float>(WindowInfo::m_ScreenHeight) - 100.0f });
+		poly->SetColor({ 1.0f,1.0f,1.0f });
+		poly->SetTex(TextureManager::Get(TextureID::Title_BG));
 		manager->Add(obj);
 	}
-	{	//ロゴ
+	if(false){	
+		auto obj = Object::Create("ball");
+		auto ball = obj->AddComponent<TitleBall>();
+		ball->SetPos({ 0.0f,0.0f });
+		ball->SetColor({ 0.0f,0.0f,1.0f });
+		ball->SetAlpha(0.6f);
+		ball->SetRadius(70.0f);
+		ball->SetDir({ 0.5f,1.0f });
+		ball->SetSpeed(5.0f);
+		ball->SetUp();
+		manager->Add(obj);
+	}
+	if(false){
+		auto obj = Object::Create("ball");
+		auto ball = obj->AddComponent<TitleBall>();
+		ball->SetPos({ 200.0f,0.0f });
+		ball->SetColor({ 0.0f,1.0f,0.0f });
+		ball->SetAlpha(0.6f);
+		ball->SetRadius(70.0f);
+		ball->SetDir({ 1.0f,0.5f });
+		ball->SetSpeed(5.0f);
+		ball->SetUp();
+		manager->Add(obj);
+	}
+	{
+		auto obj = Object::Create("tank");
+		auto tank = obj->AddComponent<TitleTank>();
+		tank->SetUp({ 0.0f,-270.0f }, 1, 0);
+		manager->Add(obj);
+	}
+	{
+		auto obj = Object::Create("tank");
+		auto tank = obj->AddComponent<TitleTank>();
+		tank->SetUp({ 0.0f,270.0f }, -1, 1);
+		manager->Add(obj);
+	}
+	if(false){	//ロゴ
 		auto obj = Object::Create("Logo");
 		auto poly = obj->AddComponent<CPolygon>();
 		poly->SetSize({ 1024.0f,512.0f });
@@ -42,7 +90,7 @@ void SceneTitle::Init()
 		poly->SetPos({ 0.0f,200.0f });
 		manager->Add(obj);
 	}
-	{
+	if(false){
 		auto obj = Object::Create("start");
 		auto poly = obj->AddComponent<CPolygon>();
 		poly->SetSize({ 1024.0f / 2,512.0f / 2 });
@@ -50,7 +98,7 @@ void SceneTitle::Init()
 		poly->SetPos({ 0.0f,-50.0f });
 		manager->Add(obj);
 	}
-	{
+	if(false){
 		auto obj = Object::Create("end");
 		auto poly = obj->AddComponent<CPolygon>();
 		poly->SetSize({ 1024.0f / 2,512.0f / 2 });
@@ -58,21 +106,13 @@ void SceneTitle::Init()
 		poly->SetPos({ 0.0f,-200.0f });
 		manager->Add(obj);
 	}
-	{	//カーソル
+	if(true){	//カーソル
 		auto obj = Object::Create("cursor");
 		auto poly = obj->AddComponent<CPolygon>();
 		poly->SetSize({ 256.0f / 2,256.0f / 2 });
 		poly->SetTex(TextureManager::Get(TextureID::TitleCursor));
 		auto cursor = obj->AddComponent<TitleCursor>();
 		cursor->SetPolygon(poly);
-		manager->Add(obj);
-	}
-	{
-		auto obj = Object::Create("fonttest");
-		FontManager::CreateString(obj, "TestFont", { 0.0f, 0.0f },5.0f);
-		//auto poly = obj->AddComponent<CPolygon>();
-		//poly->SetSize({ 32.0f,64.0f });
-		//poly->SetTex(FontManager::GetFont('*'));
 		manager->Add(obj);
 	}
 }

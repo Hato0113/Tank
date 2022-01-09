@@ -10,6 +10,7 @@
 #include "MySystem\LevelManager\MapManager.h"
 #include "MySystem\FontManager\FontManager.h"
 #include "Component\Edit\EditType.h"
+#include "MySystem\Texture\TextureManager.h"
 /*
 	コンストラクタ
 */
@@ -25,6 +26,15 @@ SceneLevelEditor::SceneLevelEditor()
 void SceneLevelEditor::Init()
 {
 	SceneBase::Init();
+
+	{	//背景
+		auto obj = Object::Create("bg");
+		auto poly = obj->AddComponent<CPolygon>();
+		poly->SetTex(TextureManager::Get(TextureID::Title_BG));
+		poly->SetColor({ 0.4f,0.4f,0.4f });
+		poly->SetSize({ static_cast<float>(WindowInfo::m_ScreenWidth),static_cast<float>(WindowInfo::m_ScreenHeight) });
+		manager->Add(obj);
+	}
 
 	{	//パネル生成
 		auto mana = SceneBase::manager;

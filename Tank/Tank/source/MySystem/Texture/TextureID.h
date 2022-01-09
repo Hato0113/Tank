@@ -34,6 +34,13 @@ enum class TextureID
 	minimap_Niedle,
 	minimap_Player,
 	minimap_Enemy,
+	Title_Circle,
+	Title_Wood,
+	Title_BG,
+	Title_tank01Right,
+	Title_tank01Left,
+	Title_tank02Right,
+	Title_tank02Left,
 };
 
 
