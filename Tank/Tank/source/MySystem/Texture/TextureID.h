@@ -41,6 +41,7 @@ enum class TextureID
 	Title_tank01Left,
 	Title_tank02Right,
 	Title_tank02Left,
+	Title_PressSpace,
 };
 
 

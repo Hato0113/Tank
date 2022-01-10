@@ -25,6 +25,7 @@ using namespace tank;
 #include "Effect\EffectManager.h"
 #include "Resident\ResidentData.h"
 #include "Scene\SceneLevelEditor.h"
+#include "System\Sound.h"
 
 //-- 静的メンバ --
 bool Application::m_GameFlag = true;
@@ -58,6 +59,9 @@ void Application::Init()
 	EffectManager::Init();
 	ResidentDataManager::Init();
 
+	//-- サウンド初期化 --
+	CSound::Init();
+
 	//-- シーン初期化 --
 	SceneManager::GetInstance().Add(SceneType::Title, Allocator::Alloc<SceneTitle>());
 	SceneManager::GetInstance().Add(SceneType::Game, Allocator::Alloc<SceneGame>());
@@ -71,6 +75,9 @@ void Application::Update()
 {
 	ConstantScene::GetInstance().Update();
 	SceneManager::GetInstance().Update();
+
+	//-- サウンド更新 --
+	CSound::Update();
 
 	//-- IMGUI更新 --
 	IG::IMGUIManager::GetInstance().Update();
@@ -96,6 +103,9 @@ void Application::Uninit()
 	PolygonManager::Uninit();
 	CAssimpModel::UninitShader();
 	ShaderManager::GetInstance().Uninit();
+
+	//-- サウンドシステム終了 --
+	CSound::Fin();
 
 	//-- リソース管理終了 --
 	TextureManager::Uninit();

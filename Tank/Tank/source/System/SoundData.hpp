@@ -1,7 +1,8 @@
 ﻿// BGM/SE定義 [SoundData.hpp]
 
 LPCWSTR g_pszFileBGM[MAX_BGM] = {
-	L"BGM_01.mp3",			// ゲームBGM
+	L"game.mp3",		//ゲームBGM
+	L"title.mp3",		//タイトルBGM
 };
 
 LPCWSTR g_pszFileSE[MAX_SE] = {

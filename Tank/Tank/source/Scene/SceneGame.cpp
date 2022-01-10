@@ -32,6 +32,7 @@
 #include "Component\GameUI\BallUI\BallUI.h"
 #include "Component\GameUI\TankUI\EnemyTankUI.h"
 #include "MySystem\EnemyAIManager\EnemyAIManager.h"
+#include "System\Sound.h"
 
 SceneGame::SceneGame()
 {
@@ -110,6 +111,10 @@ void SceneGame::Init()
 
 	//-- AIマネージャ初期化 --
 	EnemyAIManager::GetInstance().Init();
+
+	//-- BGM --
+	CSound::Play(BGM_GAME);
+	CSound::SetVolume(0.1f);
 }
 
 void SceneGame::Update()
@@ -157,8 +162,10 @@ void SceneGame::Uninit()
 {
 	SceneBase::Uninit();
 
-	//-- 敵AIマネージャー初期化 --
+	//-- 敵AIマネージャー終了 --
 	EnemyAIManager::GetInstance().Uninit();
+
+	CSound::Stop(BGM_GAME);
 }
 
 void SceneGame::SummonStage()

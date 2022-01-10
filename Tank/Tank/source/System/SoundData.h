@@ -2,7 +2,7 @@
 
 enum eBGM {
 	BGM_GAME = 0,	// ゲームBGM
-
+	BGM_TITLE,
 	MAX_BGM
 };
 

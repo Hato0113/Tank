@@ -96,7 +96,7 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::TitleCursor, "data/texture/Title/Cursor.png");
 	TextureManager::Load(TextureID::Start, "data/texture/Title/strHajimeru.png");
 	TextureManager::Load(TextureID::End, "data/texture/Title/strOwaru.png");
-	TextureManager::Load(TextureID::TitleLogo, "data/texture/Title/TitleLogo.png");
+	TextureManager::Load(TextureID::TitleLogo, "data/texture/Title/TitleLogo2.png");
 	TextureManager::Load(TextureID::TargetCursor, "data/texture/Target/TargetCursor.png");
 	TextureManager::Load(TextureID::TargetPoint, "data/texture/Target/TargetPoint.png");
 	TextureManager::Load(TextureID::UI_Ball, "data/texture/gameUI/ui_Ball.png");
@@ -118,6 +118,7 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::Title_tank01Left, "data/texture/Title/title_tank01Left.png");
 	TextureManager::Load(TextureID::Title_tank02Right, "data/texture/Title/title_tank02Right.png");
 	TextureManager::Load(TextureID::Title_tank02Left, "data/texture/Title/title_tank02Left.png");
+	TextureManager::Load(TextureID::Title_PressSpace, "data/texture/Title/pressspace.png");
 	m_LoadProgress++;
 }
 
