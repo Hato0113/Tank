@@ -214,7 +214,9 @@ bool EnemyAIManager::JudgeShot(int id)
 			break;
 		}
 	}
-	MiniMapObjectInfo playerInfo = GetMapObjectListWithType("Player")[0];
+	auto player = GetMapObjectListWithType("Player");
+	if (player.empty()) return false;
+	MiniMapObjectInfo playerInfo = player[0];
 
 	//-- レイ生成 --
 	const float increaseRate = (playerInfo.Pos.y - enemyInfo.Pos.y) / (playerInfo.Pos.x - enemyInfo.Pos.x);
