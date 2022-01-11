@@ -15,6 +15,7 @@
 #include "MySystem\Effect\EffectManager.h"
 
 #include "MySystem\LevelManager\LevelManager.h"
+#include "MySystem\GameManager\GameManager.h"
 
 
 ConstantScene::ConstantScene()
@@ -53,6 +54,7 @@ void ConstantScene::Init()
 	}
 
 	LevelManager::Init();
+	GameManager::Init();
 }
 
 void ConstantScene::Update()

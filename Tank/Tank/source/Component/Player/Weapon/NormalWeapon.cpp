@@ -12,6 +12,7 @@
 #include "Component\Player\PlayerOperation.h"
 #include "MySystem\Resident\ResidentData.h"
 #include "MySystem\Resident\ResidentFlag.h"
+#include "System\Sound.h"
 
 NormalWeapon::NormalWeapon()
 {
@@ -47,6 +48,8 @@ void NormalWeapon::Update()
 				m_CurrentBullet++;
 				BulletManager::Summon(pos, dir, BulletType::Normal, ModelID::ColorBall_Cyan, this);
 				m_DirayCount = m_Diray;
+
+				CSound::Play(eSE::SE_Shot);
 			}
 		}
 		//WeaponBase::UpdateDirSelf();
@@ -65,6 +68,9 @@ void NormalWeapon::Update()
 			pos.z += radius * dir.z * 2 + margin;
 			BulletManager::Summon(pos, dir, BulletType::Normal,ModelID::ColorBall_Red);
 			m_DirayCount = m_Diray;
+
+			CSound::Play(eSE::SE_Shot);
+
 		}
 		WeaponBase::TargetPlayer();
 		break;

@@ -7,6 +7,7 @@
 //-- include --
 #include "SphereCollider.h"
 #include "Function\Primitive\Primitive.h"
+#include "MySystem\Resident\ResidentFlag.h"
 
 SphereCollider::SphereCollider()
 {
@@ -27,5 +28,5 @@ void SphereCollider::SetRadius(float radius)
 	info.m_nSlice = 20;
 	info.m_nStack = 20;
 	m_pMesh = Primitive::CreateSpherePrimitive(parent, info);
-	m_pMesh->SetDrawFlag(false);
+	m_pMesh->SetDrawFlag(ResidentFlagManager::GetData().SystemFlag.ShowCollider);
 }

@@ -6,8 +6,10 @@ LPCWSTR g_pszFileBGM[MAX_BGM] = {
 };
 
 LPCWSTR g_pszFileSE[MAX_SE] = {
-	L"SE_Select.wav",			// 弾発射音
-	L"SE_01.wav",			// 撃破
-	L"SE_02.wav",			// ヒットオン
-	L"SE_03.wav",			// 射撃音
+	L"SE_Decision.wav",
+	L"SE_Shot.wav",
+	L"SE_Blast.wav",
+	L"SE_BulletBlast.wav",
+	L"ClearJingle.wav",
+	L"GameStartJingle.wav",
 };

@@ -21,7 +21,8 @@ namespace
 */
 BallUI::BallUI()
 {
-	//none
+	m_Balls.clear();
+	m_PlayerWeapon = nullptr;
 }
 
 /*

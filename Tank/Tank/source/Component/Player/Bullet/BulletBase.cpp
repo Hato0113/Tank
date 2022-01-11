@@ -12,6 +12,8 @@
 #include "MySystem\Effect\EffectManager.h"
 #include "Component\Effect\Effect.h"
 #include "Component\Timeline\GameEndTL.h"
+#include "System\Sound.h"
+#include "MySystem\GameManager\GameManager.h"
 
 BulletBase::~BulletBase()
 {
@@ -50,7 +52,7 @@ void BulletBase::OnCollisionEnter(Collider* other)
 			parent->SetState(false);
 			return;
 		}
-		
+
 		//-- ’Êíˆ— --
 		parent->SetState(false);
 		other->parent->SetState(false);
@@ -64,14 +66,16 @@ void BulletBase::OnCollisionEnter(Collider* other)
 		obj->SetLifeTime(120);
 		parent->GetScene()->manager->Add(obj);
 
-		if (tag == "Player")
+		if (tag == "Player" && !GameManager::isEnd)
 		{
 			//-- ƒvƒŒƒCƒ„[Ž€–S --
 			auto obj = Object::Create("EndTL");
 			obj->AddComponent<GameEndTL>(false);
 			parent->GetScene()->manager->Add(obj);
+			CSound::Play(eSE::SE_Blast);
+			GameManager::isEnd = true;
 		}
-		else if (tag == "Enemy")
+		else if (tag == "Enemy" && !GameManager::isEnd)
 		{
 			if (EnemyManager::Kill(1))
 			{
@@ -79,11 +83,14 @@ void BulletBase::OnCollisionEnter(Collider* other)
 				auto obj = Object::Create("EndTL");
 				obj->AddComponent<GameEndTL>(true);
 				parent->GetScene()->manager->Add(obj);
+				GameManager::isEnd = true;
 			}
+
+			CSound::Play(eSE::SE_Blast);
 		}
 		else if (tag == "Bullet")
 		{
-
+			CSound::Play(eSE::SE_BulletBlast);
 		}
 	}
 }

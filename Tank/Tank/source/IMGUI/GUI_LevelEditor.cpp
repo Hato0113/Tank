@@ -103,6 +103,11 @@ void LevelEditorGUI::Draw()
 	{
 		LevelManager::DeleteLevelData(LevelName);
 	}
+	ImGui::SameLine();
+	if (ImGui::Button("Reset"))
+	{
+		LevelManager::ResetPanel();
+	}
 	
 	if(ImGui::Button("AttachEditor"))
 	{

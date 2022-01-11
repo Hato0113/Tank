@@ -109,7 +109,10 @@ void LevelManager::SaveLevelData(std::string LevelName, LevelInfo info)
 		info.type = panel->GetType();
 		if (info.type == PanelType::Player)
 			playerCount += 1;
-		if (info.type == PanelType::EnemyNormal)
+		if (info.type == PanelType::EnemyNormal ||
+			info.type == PanelType::EnemyQuickly ||
+			info.type == PanelType::EnemyRapidFire ||
+			info.type == PanelType::EnemyStrong)
 			enemyCount += 1;
 		CurrentLoadData.push_back(info);
 	}
@@ -130,10 +133,12 @@ void LevelManager::SaveLevelData(std::string LevelName, LevelInfo info)
 	if (GameLevelData.find(LevelName) == GameLevelData.end())
 	{
 		GameLevelData.insert(std::make_pair(LevelName, info));
+		Uninit();	//レベル情報書き出し
 	}
 	else
 	{
-		GameLevelData[LevelName] = info;
+		GameLevelData[LevelName] = info;	//上書き
+		Uninit();	//レベル情報書き出し
 	}
 
 
@@ -311,5 +316,25 @@ void LevelManager::AttachToMap()
 			break;
 		}
 	}
+}
+
+/*
+	次レベルの名前を取得
+*/
+std::string LevelManager::GetNextLevelName(std::string LevelName)
+{
+	return GameLevelData[LevelName].NextStageName;
+}
+
+/*
+	パネル情報リセット
+*/
+void LevelManager::ResetPanel()
+{
+	for (auto &obj : CurrentLoadData)
+	{
+		obj.type = PanelType::None;
+	}
+	AttachToEditor();
 }
 

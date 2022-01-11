@@ -49,6 +49,8 @@ public:
 	static void SaveLevelData(std::string LevelName, LevelInfo info);
 	static void LoadLevelData(std::string LevelName);
 	static void DeleteLevelData(std::string LevelName);
+	static std::string GetNextLevelName(std::string levelName);
+	static void ResetPanel();	//パネルリセット
 
 public:
 	static void AttachToMap();

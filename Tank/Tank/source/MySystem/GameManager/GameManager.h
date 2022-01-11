@@ -16,7 +16,9 @@ public:
 	static void SetLevel(std::string LevelName);	//選択レベル変更
 	static void CreateLevel();						//レベルをオブジェクトとして生成
 	static std::string GetLevelName() { return m_CurrentSelect; }
+	static void ChangeNextScene();	//ゲーム終了時の遷移
 public:
 	static std::string m_CurrentSelect;		//現在選択されているレベル名
+	static bool isEnd;
 };
 

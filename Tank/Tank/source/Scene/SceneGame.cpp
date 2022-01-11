@@ -88,7 +88,7 @@ void SceneGame::Init()
 	}
 
 	//-- 三軸 --
-	if (true) {
+	if (false) {
 		Object* pAxis = Object::Create("Axis");
 		PrimitiveInfoLine axis;
 		axis.m_startPos = { 0.0f,0.0f,0.0f };
@@ -113,7 +113,7 @@ void SceneGame::Init()
 	EnemyAIManager::GetInstance().Init();
 
 	//-- BGM --
-	CSound::Play(BGM_GAME);
+	CSound::Play(JI_Start);
 	CSound::SetVolume(0.1f);
 }
 
@@ -151,6 +151,8 @@ void SceneGame::Update()
 
 	//-- 敵AI更新 --
 	EnemyAIManager::GetInstance().Update();
+
+	GameManager::isEnd = false;
 }
 
 void SceneGame::Draw()
@@ -165,6 +167,7 @@ void SceneGame::Uninit()
 	//-- 敵AIマネージャー終了 --
 	EnemyAIManager::GetInstance().Uninit();
 
+	CSound::Stop(JI_Start);
 	CSound::Stop(BGM_GAME);
 }
 

@@ -7,10 +7,11 @@ enum eBGM {
 };
 
 enum eSE {
-	SE_SELECT = 0,	// 弾発射音
-	SE_KILL,
-	SE_HIT,
-	SE_SHOT,
-
+	SE_Decision,
+	SE_Shot,
+	SE_Blast,
+	SE_BulletBlast,
+	JI_Clear,
+	JI_Start,
 	MAX_SE
 };

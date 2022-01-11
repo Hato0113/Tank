@@ -9,6 +9,7 @@
 #include "MySystem\KeyInput\KeyInput.h"
 #include "MySystem\Application.hpp"
 #include "Scene\SceneManager.h"
+#include "System\Sound.h"
 
 namespace
 {
@@ -37,7 +38,6 @@ void TitleCursor::Update()
 	m_Alpha += DirectX::XM_PI / 180.0f * 3;
 	float al = (sinf(m_Alpha) + 1.0f) * 0.5f;
 	m_Poly->SetAlpha(al);
-	return;
 
 	if (Selected) return;
 
@@ -45,6 +45,7 @@ void TitleCursor::Update()
 	if (KeyInput::GetKeyPush(VK_SPACE))
 	{
 		SceneManager::GetInstance().SetNextChange(SceneType::Game);
+		CSound::Play(SE_Decision);
 		Selected = true;
 	}
 
@@ -52,6 +53,7 @@ void TitleCursor::Update()
 	if (KeyInput::GetKeyPush(VK_F1))
 	{
 		SceneManager::GetInstance().SetNextChange(SceneType::Edit);
+		CSound::Play(SE_Decision);
 		Selected = true;
 	}
 

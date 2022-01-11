@@ -15,6 +15,7 @@
 #include "MySystem\GameManager\GameManager.h"
 #include "MySystem\Texture\TextureManager.h"
 #include "Component\Polygon\PolygonFade.h"
+#include "System\Sound.h"
 
 GameStartTL::GameStartTL()
 {
@@ -95,6 +96,9 @@ void GameStartTL::Update()
 	}
 			break;
 	case 290:
+		//-- BGM --
+		CSound::Play(BGM_GAME);
+		
 		//-- プレイヤーの操作開始 --
 	{
 		auto player = parent->GetScene()->manager->FindObjectWithTag("Player");

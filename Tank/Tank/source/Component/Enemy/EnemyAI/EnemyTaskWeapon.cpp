@@ -38,7 +38,5 @@ void EnemyTaskWeapon::Update()
 	if (m_Weapon)
 	{
 		m_Weapon->SetActive(m_canShot);
-		if(m_canShot)
-			IG::MessageManager::DrawSystemLog("shot");
 	}
 }

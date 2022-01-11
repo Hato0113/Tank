@@ -7,6 +7,7 @@
 //-- include --
 #include "BoxCollider.h"
 #include "Function\Primitive\Primitive.h"
+#include "MySystem\Resident\ResidentFlag.h"
 
 BoxCollider::BoxCollider()
 {
@@ -26,7 +27,7 @@ void BoxCollider::SetSize(DirectX::XMFLOAT3 size)
 	info.m_Size = { m_Size.x,m_Size.y,m_Size.z };
 	info.m_Dif = { 0.0f,1.0f,1.0f,0.4f };
 	m_pMesh = Primitive::CreateCubePrimitive(parent, info);
-	m_pMesh->SetDrawFlag(false);
+	m_pMesh->SetDrawFlag(ResidentFlagManager::GetData().SystemFlag.ShowCollider);
 }
 
 void BoxCollider::SetSize(float size)

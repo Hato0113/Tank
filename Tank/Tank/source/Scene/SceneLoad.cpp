@@ -124,11 +124,11 @@ void SceneLoad::LoadTexture()
 
 void SceneLoad::LoadModel()
 {
-	ModelManager::Load(ModelID::Test01, "data/model/Test/Sword And Shield.fbx");
-	ModelManager::Load(ModelID::Field01, "data/model/Test/cube01.fbx");
-	ModelManager::Load(ModelID::Field02, "data/model/Fields/ground01.fbx");
-	ModelManager::Load(ModelID::AirPlane, "data/model/airplane/airplane.obj");
-	ModelManager::Load(ModelID::Bullet, "data/model/Bullet/Bullet.fbx");
+	//ModelManager::Load(ModelID::Test01, "data/model/Test/Sword And Shield.fbx");
+	//ModelManager::Load(ModelID::Field01, "data/model/Test/cube01.fbx");
+	//ModelManager::Load(ModelID::Field02, "data/model/Fields/ground01.fbx");
+	//ModelManager::Load(ModelID::AirPlane, "data/model/airplane/airplane.obj");
+	//ModelManager::Load(ModelID::Bullet, "data/model/Bullet/Bullet.fbx");
 	ModelManager::Load(ModelID::SandGround, "data/model/Fields/sandGround.fbx");
 	ModelManager::Load(ModelID::ColorBall_Red, "data/model/ColorBall/RedBall.fbx");
 	ModelManager::Load(ModelID::ColorBall_Blue, "data/model/ColorBall/BlueBall.fbx");
