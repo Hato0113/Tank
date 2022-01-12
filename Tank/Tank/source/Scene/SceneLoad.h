@@ -48,6 +48,6 @@ private:
 	std::atomic<int> m_LoadProgress;	//進行状態
 	int m_LoadProcess;	//総ロード処理
 	int m_CurrentCount;
-	const int MinCount = 0;	//最低でもロード画面を見せるフレーム数
+	const int MinCount = 120;	//最低でもロード画面を見せるフレーム数
 };
 

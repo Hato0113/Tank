@@ -27,6 +27,7 @@ void EnemyManager::Summon(DirectX::XMINT2 pos, EnemyType type)
 	auto ai = obj->AddComponent<EnemyTaskManager>();
 	auto wepTask = obj->AddComponent<EnemyTaskWeapon>();
 	ai->AddTask(wepTask);
+	wepTask->SetActive(false);
 
 	switch (type)
 	{

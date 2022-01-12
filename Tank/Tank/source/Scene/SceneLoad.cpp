@@ -33,10 +33,6 @@ SceneLoad::SceneLoad()
 
 void SceneLoad::Init()
 {
-	TextureThread = std::make_unique<std::thread>([this]() {this->LoadTexture(); });	//テクスチャ読み込み開始
-	ModelThread = std::make_unique<std::thread>([this]() {this->LoadModel(); });	//モデル読み込み開始
-	SpriteThread = std::make_unique<std::thread>([this]() {this->LoadSprite(); });	//スプライトデータ読み込み開始
-	EffectThread = std::make_unique<std::thread>([this]() {this->LoadEffect(); });	//エフェクトデータ読み込み
 
 	m_LoadProcess = 4;	//スレッドの総数 
 
@@ -62,6 +58,11 @@ void SceneLoad::Init()
 		obj->AddComponent<Loading>();
 		manager->Add(obj);
 	}
+
+	TextureThread = std::make_unique<std::thread>([this]() {this->LoadTexture(); });	//テクスチャ読み込み開始
+	ModelThread = std::make_unique<std::thread>([this]() {this->LoadModel(); });	//モデル読み込み開始
+	SpriteThread = std::make_unique<std::thread>([this]() {this->LoadSprite(); });	//スプライトデータ読み込み開始
+	EffectThread = std::make_unique<std::thread>([this]() {this->LoadEffect(); });	//エフェクトデータ読み込み
 }
 
 void SceneLoad::Update()
