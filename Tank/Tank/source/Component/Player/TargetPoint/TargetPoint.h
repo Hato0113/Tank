@@ -9,6 +9,7 @@
 #include "Component\Component.h"
 #include "Function\Primitive\Primitive.h"
 #include "Component\Player\Weapon.h"
+#include "Component\Polygon\Polygon.h"
 
 //-- クラス定義 --
 class TargetPoint : public Component

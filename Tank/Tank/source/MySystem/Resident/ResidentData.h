@@ -22,7 +22,7 @@ struct ResidentData
 		float MaxSpeed = 0.3f;		//スピード
 		float AccFrame = 3.0f;		//加速フレーム
 		float DecFrame = 5.0f;		//減速フレーム
-		int ShotRate = 10;		//ショットのレート
+		int ShotRate = 14;		//ショットのレート
 		int ShotMax = 5;		//最大弾数
 	}PlayerData;
 	struct

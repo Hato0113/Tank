@@ -12,7 +12,7 @@
 
 namespace
 {
-	const float Speed = 0.8f;
+	const float Speed = 1.0f;
 	const int MaxHit = 2;
 }
 

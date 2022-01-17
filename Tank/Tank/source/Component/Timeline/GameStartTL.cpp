@@ -16,6 +16,7 @@
 #include "MySystem\Texture\TextureManager.h"
 #include "Component\Polygon\PolygonFade.h"
 #include "System\Sound.h"
+#include "Component\Enemy\EnemyAI\EnemyTaskWeapon.h"
 
 GameStartTL::GameStartTL()
 {
@@ -115,6 +116,7 @@ void GameStartTL::Update()
 		for (auto obj : enemys)
 		{
 			obj->GetComponent<WeaponBase>()->SetActive(true);
+			obj->GetComponent<EnemyTaskWeapon>()->SetActive(true);
 			obj->GetComponent<EnemyMovement>()->SetActive(true);
 		}
 	}
