@@ -1,46 +1,55 @@
-﻿//------------------------------
-//	常駐シーン
-//-- author --
-//	HatoriMasashi
-//------------------------------
+﻿/**
+ * @brief 常駐シーン
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- include --
 #include "Scene\SceneBase.h"
 
 //-- クラス定義 --
+/**
+ * 常駐シーン
+ */
 class ConstantScene final : public SceneBase
 {
 private:
+	/**
+	 * @brief コンストラクタ
+	 */
 	ConstantScene();
+
+	/**
+	 * @brief デストラクタ
+	 */
 	~ConstantScene() = default;
+
 public:
-	/*
-		初期化
-		パラメータ無し
-	*/
+	/**
+	 * @brief 初期化
+	 */
 	void Init() override;
 
-	/*
-		更新
-		パラメータ無し
-	*/
+	/**
+	 * @brief 更新
+	 */
 	void Update() override;
-	/*
-		描画
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 更新
+	 */
 	void Draw() override;
-	/*
-		終了処理
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 終了処理
+	 */
 	void Uninit() override;
 
-	/*
-		インスタンス取得関数
-		戻り値 : インスタンスへの参照
-	*/
+	/**
+	 * @brief インスタンス取得
+	 * 
+	 * @return インスタンス
+	 */
 	static ConstantScene& GetInstance()
 	{
 		static ConstantScene inst;

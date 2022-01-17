@@ -1,42 +1,50 @@
-﻿//------------------------------
-//	シーンインターフェースクラス
-//-- author --
-//	HatoriMasashi
-//------------------------------
+﻿/**
+ * @brief シーンインターフェース
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- クラス定義 --
+/**
+ * @brief シーンインターフェース
+ */
 class ObjectManager;
 class SceneBase abstract
 {
 public:
+	/**
+	 * @brief コンストラクタ
+	 */
 	SceneBase();
+
+	/**
+	 * @brief デストラクタ
+	 */
 	virtual ~SceneBase() = default;
 
-	/*
-		初期化
-		パラメータ無し
-	*/
+	/**
+	 * @brief 初期化
+	 */
 	virtual void Init();
-	/*
-		更新
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 更新
+	 */
 	virtual void Update();
-	/*
-		描画
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 描画
+	 */
 	virtual void Draw();
-	/*
-		終了処理
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 終了処理
+	 */
 	virtual void Uninit();
 
-	//-- メンバ変数 --
 public:
-	ObjectManager* manager;	//オブジェクトマネージャ
+	//! オブジェクトマネージャ
+	ObjectManager* manager;
 };
 
 #define ISCENE_H

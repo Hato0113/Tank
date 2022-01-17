@@ -1,17 +1,18 @@
-﻿//------------------------------
-//	シーンマネージャークラス
-//-- author --
-//	HatoriMasashi
-//------------------------------
+﻿/**
+ * @brief シーンマネージャー
+ * @author HatoriMasashi
+ */
 #pragma once
 
-//-- include --
+ //-- include --
 #include "SceneBase.h"
 #include <unordered_map>
 #include "Component\Fade\Fade.h"
 
-
-//-- 列挙 --
+//-- enum --
+/**
+ * @brief シーンタイプ
+ */
 enum class SceneType
 {
 	Title = 0,
@@ -23,71 +24,94 @@ enum class SceneType
 };
 
 //-- クラス定義 --
+/**
+ * @brief シーンマネージャー
+ */
 class SceneManager final
 {
 private:
+	/**
+	 * @brief コンストラクタ
+	 */
 	SceneManager();
-	~SceneManager() {};
+
+	/**
+	 * @brief デストラクタ
+	 */
+	~SceneManager() = default;
+
 public:
-	/*
-		インスタンス取得関数
-		戻り値 : インスタンスへの参照
-	*/
+	/**
+	 * @brief インスタンスゲット
+	 *
+	 * @return シーンマネージャーオブジェクト
+	 */
 	static SceneManager& GetInstance()
 	{
 		static SceneManager inst;
 		return inst;
 	}
 
-	/*
-		更新
-		パラメータ無し
-	*/
+	/**
+	 * @brief 更新
+	 */
 	void Update();
-	/*
-		描画
-		パラメータ無し
-	*/
+
+	/**
+	 * @brief 描画
+	 */
 	void Draw();
-	/*
-		終了処理
-		パラメータ無し
-	*/
+
+	/**
+	 * @brief 終了処理
+	 */
 	void Uninit();
 
-	/*
-		シーン情報追加
-		引数 : シーンタイプ,シーンオブジェクトへのポインタ
-	*/
+	/**
+	 * @brief シーン情報追加
+	 *
+	 * @param シーンタイプ
+	 * @param シーンオブジェクトポインタ
+	 */
 	void Add(SceneType, SceneBase*);
 
-	/*
-		シーン移動
-		引数 : シーンタイプ
-	*/
+	/**
+	 * @brief 次シーンの設定
+	 *
+	 * @param シーンタイプ
+	 */
 	void SetNextChange(SceneType);
 
-	/*
-		初期シーン設定
-		引数 : シーンタイプ
-	*/
+	/**
+	 * @brief 初期シーン設定
+	 *
+	 * @param シーンタイプ
+	 */
 	void SetFirst(SceneType);
 
-	/*
-		現在シーン取得
-		戻り値 : シーンオブジェクトへのポインタ
-	*/
+	/**
+	 * @brief 現在シーン取得
+	 *
+	 * @return シーンオブジェクト
+	 */
 	SceneBase* GetCurrentScene() { return m_pCurrentScene; }
-	/*
-		現在シーンタイプ取得
-		戻り値 : シーンタイプ
-	*/
+
+	/**
+	 * @brief 現在シーンタイプ取得
+	 *
+	 * @return シーンオブジェクト
+	 */
 	SceneType GetCurrentSceneType() { return m_CurrentType; }
 
 private:
-	std::unordered_map<SceneType, SceneBase*> m_SceneMap;	//シーン管理マップ
-	SceneBase* m_pCurrentScene;	//現在シーン
-	SceneBase* m_pNextScene;	//次のシーン
-	Fade* m_Fade;	//フェードオブジェクトへのポインタ
-	SceneType m_CurrentType;	//現在シーンタイプ
+	//! シーン連想配列
+	std::unordered_map<SceneType, SceneBase*> m_SceneMap;
+	//! 現在シーン
+	SceneBase* m_pCurrentScene;
+	//! 次シーン
+	SceneBase* m_pNextScene;
+	//! フェードオブジェクトポインタ
+	Fade* m_Fade;
+	//! シーンタイプ
+	SceneType m_CurrentType;
 };

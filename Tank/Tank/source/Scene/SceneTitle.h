@@ -1,40 +1,47 @@
-﻿//------------------------------
-//	タイトルシーンクラス
-//-- author --
-//	HatoriMasashi
-//------------------------------
+﻿/**
+ * @brief タイトルシーン
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- include --
 #include "SceneBase.h"
 
 //-- クラス定義 --
+/**
+ * @brief タイトルシーン
+ */
 class SceneTitle final : public SceneBase
 {
 public:
+	/**
+	 * @brief コンストラクタ
+	 */
 	SceneTitle();
+
+	/**
+	 * @brief デストラクタ
+	 */
 	~SceneTitle() = default;
 
-	/*
-		初期化
-		パラメータ無し
-	*/
+	/**
+	 * @brief 初期化
+	 */
 	void Init() override;
 
-	/*
-		更新
-		パラメータ無し
-	*/
+	/**
+	 * @brief 更新
+	 */
 	void Update() override;
-	/*
-		描画
-		パラメータ無し
-	*/
+
+	/**
+	 * @brief 描画
+	 */
 	void Draw() override;
-	/*
-		終了処理
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 終了処理
+	 */
 	void Uninit() override;
 };
 
