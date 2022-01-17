@@ -1,8 +1,7 @@
-﻿//-----------------------------
-//	シェーダーマネージャー
-//-- author --
-//	HatoriMasashi
-//-----------------------------
+﻿/**
+ * @brief シェーダーマネージャー
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- include --
@@ -15,77 +14,119 @@
 #include "ShaderTexture.h"
 
 //-- クラス定義 --
+/**
+ * @brief シェーダーマネージャー
+ * @details シングルトン
+ */
 class ShaderManager
 {
 private:
+	/**
+	 * @brief コンストラクタ
+	 */
 	ShaderManager();
+
+	/**
+	 * @brief デストラクタ
+	 */
 	~ShaderManager() = default;
+
 public:
-	/*
-		シングルトン
-		インスタンスゲット関数
-		戻り値 : ShaderManagerオブジェクト
-	*/
+	/**
+	 * @brief インスタンス取得
+	 * @return シェーダーマネージャーオブジェクト参照
+	 */
 	static ShaderManager& GetInstance()
 	{
 		static ShaderManager inst;
 		return inst;
 	}
 
-	/*
-		データセット関数
-		引数 : 登録する名前,データへのポインタ
-	*/
 private:
+	/**
+	 * @brief 頂点シェーダーセット
+	 * 
+	 * @param name
+	 * @param 頂点シェーダーオブジェクトポインタ
+	 */
 	void Set(std::string name, VertexBase*);
+
+	/**
+	 * @brief ピクセルシェーダーセット
+	 * 
+	 * @param name
+	 * @param ピクセルシェーダーオブジェクトポインタ
+	 */
 	void Set(std::string name, PixelBase*);
+
+	/**
+	 * @brief 定数バッファセット
+	 * 
+	 * @param name
+	 * @param 定数バッファオブジェクトポインタ
+	 */
 	void Set(std::string name, ConstantBuffer*);
+
+	/**
+	 * @brief シェーダーリソースセット
+	 * 
+	 * @param name
+	 * @param シェーダー用テクスチャオブジェクトポインタ
+	 */
 	void Set(std::string name, ShaderTexture*);
 
 public:
-	/*
-		定数バッファバインド
-		パラメータ無し
-	*/
+	/**
+	 * @brief 定数バッファバインド
+	 */
 	void ConstantBufferBind();
-	/*
-		テクスチャリソースバインド
-		パラメータ無し
-	*/
+
+	/**
+	 * @brief テクスチャリソースバインド
+	 */
 	void TextureResourceBind();
-	/*
-		定数バッファ書き込み
-		引数 : 定数バッファ,書き込みデータ
-	*/
+	
+	/**
+	 * @brief テクスチャリソースバインド
+	 * 
+	 * @param name
+	 * @param data
+	 */
 	void ConstantWrite(std::string name, void* data);
 
-	/*
-		初期化
-		パラメータ無し
-	*/
+	/**
+	 * @brief 初期化
+	 */
 	void Init();
-	/*
-		シェーダー,バッファ解放
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief 終了処理
+	 */
 	void Uninit();
 
-	/*
-		頂点シェーダーバインド
-		引数 : シェーダー名
-	*/
+	/**
+	 * @brief 頂点シェーダーバインド
+	 * 
+	 * @param name
+	 */
 	void BindVS(std::string name);
-	/*
-		ピクセルシェーダーバインド
-		引数 : シェーダー名
-	*/
+
+	/**
+	 * @brief ピクセルシェーダーバインド
+	 * 
+	 * @param name
+	 */
 	void BindPS(std::string name);
 
 private:
-	std::unordered_map<std::string, VertexBase*> VertexMap;	//頂点シェーダーマップ
-	std::unordered_map<std::string, PixelBase*> PixelMap;	//ピクセルシェーダーマップ
-	std::unordered_map<std::string, ConstantBuffer*> ConstantMap;	//定数バッファマップ
-	std::unordered_map<std::string, ShaderTexture*> TextureMap;	//テクスチャ
+	//! 頂点シェーダー連想配列
+	std::unordered_map<std::string, VertexBase*> VertexMap;
+	//! ピクセルシェーダー連想配列
+	std::unordered_map<std::string, PixelBase*> PixelMap;
+	//! 定数バッファ連想配列
+	std::unordered_map<std::string, ConstantBuffer*> ConstantMap;
+	//! テクスチャリソース連想配列
+	std::unordered_map<std::string, ShaderTexture*> TextureMap;
 };
 
 

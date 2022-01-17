@@ -1,8 +1,7 @@
-﻿//----------------------------------
-//	ピクセルシェーダーベース
-//-- author --
-//	HatoriMasashi
-//----------------------------------
+﻿/**
+ * @brief ピクセルシェーダーベース
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- include --
@@ -10,23 +9,36 @@
 #include <string>
 
 //-- クラス定義 --
+/**
+ * @brief ピクセルシェーダーベース
+ */
 class PixelBase final
 {
 public:
+	/**
+	 * @brief コンストラクタ
+	 */
 	PixelBase();
+
+	/**
+	 * @brief デストラクタ
+	 */
 	~PixelBase();
+
 public:
-	/*
-		バインド関数
-		パラメータ無し
-	*/
+	/**
+	 * @brief バインド
+	 */
 	void Bind();
-	/*
-		シェーダー作成
-		引数 : ファイル名
-	*/
-	HRESULT Make(std::string fileName);	//シェーダー作成関数
+
+	/**
+	 * @brief 生成
+	 * 
+	 * @param fileName
+	 */
+	HRESULT Make(std::string fileName);
 
 private:
-	ID3D11PixelShader* m_Shader;	//シェーダー本体
+	//! ピクセルシェーダー
+	ID3D11PixelShader* m_Shader;
 };

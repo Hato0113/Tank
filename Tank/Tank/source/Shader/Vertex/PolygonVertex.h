@@ -1,8 +1,7 @@
-﻿//----------------------------------
-//	メッシュ用頂点シェーダー
-//-- author --
-//	HatoriMasashi
-//----------------------------------
+﻿/**
+ * @brief 2Dポリゴン用頂点シェーダー
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- include --
@@ -15,11 +14,6 @@ public:
 	PolygonVertex() = default;
 	virtual ~PolygonVertex() = default;
 public:
-	/*
-		シェーダー作成
-		引数 : ファイル名
-		戻り値 : 結果
-	*/
 	HRESULT Make(std::string) override;
 };
 

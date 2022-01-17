@@ -1,8 +1,7 @@
-﻿//----------------------------------
-//	頂点シェーダーベース
-//-- author --
-//	HatoriMasashi
-//----------------------------------
+﻿/**
+ * @brief 頂点シェーダーベース
+ * @author HatoriMasashi
+ */
 #pragma once
 
 //-- include --
@@ -10,27 +9,40 @@
 #include <string>
 
 //-- クラス定義 --
+/**
+ * @brief 頂点シェーダーベース
+ */
 class VertexBase abstract
 {
 public:
+	/**
+	 * @brief コンストラクタ
+	 */
 	VertexBase();
+
+	/**
+	 * @brief デストラクタ
+	 */
 	virtual ~VertexBase();
 public:
-	/*
-		バインド関数
-		パラメータ無し
-	*/
+	
+	/**
+	 * @brief バインド
+	 */
 	virtual void Bind() final;
 
-	/*
-		シェーダー作成
-		引数 : ファイル名
-		戻り値 : 結果
-	*/
+	/**
+	 * @brief 生成関数
+	 * 
+	 * @param FileName
+	 * @return result
+	 */
 	virtual HRESULT Make(std::string) = 0;
 
 protected:
-	ID3D11VertexShader* m_Shader;	//シェーダー本体
-	ID3D11InputLayout* m_Layout;	//レイアウト
+	//! 頂点シェーダー
+	ID3D11VertexShader* m_Shader;
+	//! 頂点レイアウト
+	ID3D11InputLayout* m_Layout;
 };
 

@@ -31,6 +31,7 @@ public:
 	virtual void Draw() {};
 	virtual void Uninit() {};
 
+	
 	virtual void OnCollisionEnter(Collider*) {};	//当たった瞬間
 	virtual void OnCollisionStay(Collider*) {};	//当たっている間
 	virtual void OnCollisionExit(Collider*) {};	//当たらなくなった瞬間

@@ -34,7 +34,6 @@ public:
 	void SetRotate(EulerAngles angle) { m_EulerAngle = angle; }
 	void SetName(const std::string name) { m_Name = name; }
 	void SetTag(const std::string tag) { m_Tag = tag; }
-
 	//-- メンバ変数 --
 private:
 	DirectX::XMFLOAT3 m_Pos;	//座標

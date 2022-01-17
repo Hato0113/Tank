@@ -1,22 +1,17 @@
-﻿//------------------------------
-//	モデルコンポーネント
-//-- author --
-//	HatoriMasashi
-//------------------------------
+﻿/**
+ * @brief 定数バッファ定義
+ * @details	シェーダーで使用する定数バッファの構造体用ヘッダ
+	        ここに書き込んだ構造体のバッファをShaderManagerで生成する。
+ */
 #pragma once
-
-/*
-	シェーダーで使用する定数バッファの構造体用ヘッダ
-	ここに書き込んだ構造体のバッファをShaderManagerで生成する。
-*/
 
 //-- include --
 #include <DirectXMath.h>
 
 //-- 構造体定義 --
-/*
-	カメラ / ライト情報
-*/
+/**
+ * @brief カメラライト情報
+ */
 struct CB_CameraLight
 {
 	DirectX::XMMATRIX	WVPMat;		//ワールド×ビュー×射影行列(転置行列)
@@ -31,9 +26,9 @@ struct CB_CameraLight
 	DirectX::XMVECTOR	LightSpecular;	//鏡面反射光
 };
 
-/*
-	マテリアル情報
-*/
+/**
+ * @brief マテリアル情報
+ */
 struct CB_Material
 {
 	DirectX::XMVECTOR	Ambient;	// アンビエント色
@@ -43,9 +38,9 @@ struct CB_Material
 	DirectX::XMVECTOR	Flags;		// テクスチャ有無
 };
 
-/*
-	AssimpModelのボーン情報
-*/
+/**
+ * @brief Assimp用ボーン情報
+ */
 struct CB_AssimpBone
 {
 	static constexpr int BoneMax = 64;
@@ -57,13 +52,3 @@ struct CB_AssimpBone
 		}
 	}
 };
-
-/*
-	水面表現の情報
-*/
-struct CB_WaterSurface
-{
-
-};
-
-
