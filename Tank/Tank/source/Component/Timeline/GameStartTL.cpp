@@ -122,7 +122,7 @@ void GameStartTL::Update()
 	}
 
 
-	parent->SetState(false);
+	parent->SetEnable(false);
 	break;
 	default:
 		break;

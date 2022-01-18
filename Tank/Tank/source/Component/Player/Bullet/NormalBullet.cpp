@@ -73,7 +73,7 @@ void NormalBullet::OnCollisionEnter(Collider* other)
 	{
 		m_HitCount++;
 		if (m_HitCount >= MaxHit)
-			parent->SetState(false);	//オブジェクト破棄
+			parent->SetEnable(false);	//オブジェクト破棄
 
 		auto obj = Object::Create("testEffect");
 		obj->transform->SetPos(parent->transform->GetPos());

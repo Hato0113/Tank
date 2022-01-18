@@ -46,7 +46,7 @@ public:
 
 	//-- アクセサ --
 	void SetLifeTime(const int time) { m_LifeTime = time; }
-	void SetState(const bool state) { m_State = state; }
+	void SetEnable(const bool enable) { m_Enable = enable; }
 	void SetPause(const bool pause) { m_Pause = pause; }
 	void SetScene(SceneBase* const scene) { m_Scene = scene; }
 	void SetVisible(const bool state) { m_Visible = state; }
@@ -54,7 +54,7 @@ public:
 
 	bool GetState() const { 
 		if (!this) return false;
-		return m_State; 
+		return m_Enable; 
 	}
 	bool GetPause() const { return m_Pause; }
 	SceneBase* GetScene() const { return m_Scene; }
@@ -81,7 +81,7 @@ public:
 private:
 	SceneBase* m_Scene;	//所属シーン
 	std::list<Component*> m_ComponentList;
-	bool m_State;	//オブジェクト状態 , falseでオブジェクト削除
+	bool m_Enable;	//オブジェクト状態 , falseでオブジェクト削除
 	bool m_Pause;	//停止フラグ , trueでUpdate停止
 	int m_LifeTime;	//生存時間 -1 : 無限
 	bool m_Visible;	//見えるか否か

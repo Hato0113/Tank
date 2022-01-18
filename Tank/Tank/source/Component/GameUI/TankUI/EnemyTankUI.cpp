@@ -51,7 +51,7 @@ void EnemyTankUI::Update()
 
 	//-- 文字列更新 --
 	{
-		if (m_StrObj) m_StrObj->SetState(false);
+		if (m_StrObj) m_StrObj->SetEnable(false);
 		std::string str = "x ";
 		str += std::to_string(m_EnemyNum);
 		auto obj = Object::Create("enemyNumStr");

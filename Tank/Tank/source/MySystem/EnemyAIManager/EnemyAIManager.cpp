@@ -236,11 +236,14 @@ bool EnemyAIManager::JudgeShot(int id)
 		smallpos.y = (enemyInfo.Pos.y > playerInfo.Pos.y) ? playerInfo.Pos.y : enemyInfo.Pos.y;
 		bigpos.y = (enemyInfo.Pos.y > playerInfo.Pos.y) ? enemyInfo.Pos.y : playerInfo.Pos.y;
 
-		if (smallpos.x > point.x || bigpos.x < point.x)
+		//幅が大きい方のみで判定
+		bool target = (fabsf(smallpos.x - bigpos.x) > fabsf(smallpos.y - bigpos.y)) ? true : false;
+
+		if (target && (smallpos.x > point.x || bigpos.x < point.x))
 		{
 			judge = true;
 		}
-		if (smallpos.y > point.y || bigpos.y < point.y)
+		if (!target && (smallpos.y > point.y || bigpos.y < point.y))
 		{
 			judge = true;
 		}

@@ -13,7 +13,7 @@ Object::Object()
 	transform = nullptr;
 	m_Scene = nullptr;
 	m_ComponentList.clear();
-	m_State = true;
+	m_Enable = true;
 	m_Pause = false;
 	m_LifeTime = -1;
 	m_Visible = true;
@@ -54,7 +54,7 @@ void Object::Update()
 	{
 		m_LifeTime--;
 		if (!m_LifeTime)
-			m_State = false;
+			m_Enable = false;
 	}
 }
 

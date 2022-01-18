@@ -75,5 +75,7 @@ private:
 	int m_CurrentCount;
 	//! 最小フレーム数
 	const int MinCount = 120;
+	//! スレッドの有効状態
+	std::atomic<bool> m_ThreadEnable;
 };
 

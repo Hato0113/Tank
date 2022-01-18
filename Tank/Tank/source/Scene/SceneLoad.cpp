@@ -15,13 +15,13 @@
 #include "Component\Polygon\Polygon.h"
 #include "Component\Loading\Loading.h"
 #include "MySystem\Effect\EffectManager.h"
+#include "IMGUI\GUI_Message.h"
 
 namespace
 {
 	std::unique_ptr<std::thread> TextureThread;
 	std::unique_ptr<std::thread> ModelThread;
 	std::unique_ptr<std::thread> SpriteThread;
-	std::unique_ptr<std::thread> EffectThread;
 }
 
 SceneLoad::SceneLoad()
@@ -29,19 +29,19 @@ SceneLoad::SceneLoad()
 	m_LoadProcess = 0;
 	m_LoadProgress = 0;
 	m_CurrentCount = 0;
+	m_ThreadEnable = false;
 }
 
 void SceneLoad::Init()
 {
 
-	m_LoadProcess = 4;	//スレッドの総数 
+	m_LoadProcess = 3;	//スレッドの総数 
 
 	//-- ロード画面セット --
 	{
 		TextureManager::Load(TextureID::BG01, "data/texture/bg.png");
 		auto obj = Object::Create("LoadCover");
 		auto poly = obj->AddComponent<CPolygon>();
-		//poly->SetTex(TextureManager::Get(TextureID::BG01));
 		poly->SetColor({ 0.0f,0.0f,0.0f });
 		poly->SetSize({ static_cast<float>(WindowInfo::m_ScreenWidth),static_cast<float>(WindowInfo::m_ScreenHeight) });
 		manager->Add(obj);
@@ -59,15 +59,17 @@ void SceneLoad::Init()
 		manager->Add(obj);
 	}
 
+	//単騎ロード(バグ回避)
+	LoadEffect();
+
 	TextureThread = std::make_unique<std::thread>([this]() {this->LoadTexture(); });	//テクスチャ読み込み開始
 	ModelThread = std::make_unique<std::thread>([this]() {this->LoadModel(); });	//モデル読み込み開始
 	SpriteThread = std::make_unique<std::thread>([this]() {this->LoadSprite(); });	//スプライトデータ読み込み開始
-	EffectThread = std::make_unique<std::thread>([this]() {this->LoadEffect(); });	//エフェクトデータ読み込み
 }
 
 void SceneLoad::Update()
 {
-	if (m_CurrentCount++ > MinCount && m_LoadProcess <= m_LoadProgress)
+	if (m_CurrentCount++ > MinCount && m_LoadProcess <= m_LoadProgress.load())
 		SceneManager::GetInstance().SetNextChange(SceneType::Title);
 
 	SceneBase::Update();
@@ -83,13 +85,14 @@ void SceneLoad::Uninit()
 	TextureThread.get()->join();
 	ModelThread.get()->join();
 	SpriteThread.get()->join();
-	EffectThread.get()->join();
 
 	SceneBase::Uninit();
 }
 
 void SceneLoad::LoadTexture()
 {
+	IG::MessageManager::DrawSystemLog("TextureLoadStart");
+
 	TextureManager::Load(TextureID::NullTex, "data/texture/NullTex.jpg");
 	TextureManager::Load(TextureID::Field01, "data/texture/Field01.jpg");
 	TextureManager::Load(TextureID::VillageItem, "data/texture/VillageItem.png");
@@ -120,16 +123,15 @@ void SceneLoad::LoadTexture()
 	TextureManager::Load(TextureID::Title_tank02Right, "data/texture/Title/title_tank02Right.png");
 	TextureManager::Load(TextureID::Title_tank02Left, "data/texture/Title/title_tank02Left.png");
 	TextureManager::Load(TextureID::Title_PressSpace, "data/texture/Title/pressspace.png");
+	
 	m_LoadProgress++;
+	IG::MessageManager::DrawSystemLog("TextureLoadOK");
 }
 
 void SceneLoad::LoadModel()
 {
-	//ModelManager::Load(ModelID::Test01, "data/model/Test/Sword And Shield.fbx");
-	//ModelManager::Load(ModelID::Field01, "data/model/Test/cube01.fbx");
-	//ModelManager::Load(ModelID::Field02, "data/model/Fields/ground01.fbx");
-	//ModelManager::Load(ModelID::AirPlane, "data/model/airplane/airplane.obj");
-	//ModelManager::Load(ModelID::Bullet, "data/model/Bullet/Bullet.fbx");
+	IG::MessageManager::DrawSystemLog("ModelLoadStart");
+
 	ModelManager::Load(ModelID::SandGround, "data/model/Fields/sandGround.fbx");
 	ModelManager::Load(ModelID::ColorBall_Red, "data/model/ColorBall/RedBall.fbx");
 	ModelManager::Load(ModelID::ColorBall_Blue, "data/model/ColorBall/BlueBall.fbx");
@@ -152,23 +154,31 @@ void SceneLoad::LoadModel()
 	ModelManager::Load(ModelID::Enemy04_Body, "data/model/Tank/enemy04/Enemy04Body.fbx");
 	ModelManager::Load(ModelID::WoodBlock, "data/model/WoodBlock/woodBlock.fbx");
 	ModelManager::Load(ModelID::Niedle, "data/model/Niedle/SilverNiedle.fbx");
-
+	
+	IG::MessageManager::DrawSystemLog("ModelLoadOK");
 	m_LoadProgress++;
 }
 
 void SceneLoad::LoadSprite()
 {
+	IG::MessageManager::DrawSystemLog("SpriteLoadStart");
+
 	SpriteManager::Load(SpriteType::VillageItem, "data/SpriteData/VillageItem.csv", TextureID::VillageItem, 512, 512);
 	m_LoadProgress++;
+	IG::MessageManager::DrawSystemLog("SpriteLoadOK");
 }
 
 void SceneLoad::LoadEffect()
 {
+	IG::MessageManager::DrawSystemLog("EffectLoadStart");
+
 	EffectManager::Load(EffectID::Test01, u"data/Effect/oura.efk");
 	EffectManager::Load(EffectID::Hit01, u"data/Effect/Hit/Hit.efk");
 	EffectManager::Load(EffectID::Explosion, u"data/Effect/ExpEffect.efk");
 	EffectManager::Load(EffectID::HitEffect, u"data/Effect/HitEffect.efk");
 	EffectManager::Load(EffectID::MuzzleFlash, u"data/Effect/MuzzleFlash.efk");
+	
+	IG::MessageManager::DrawSystemLog("EffectLoadOK");
 	m_LoadProgress++;
 }
 

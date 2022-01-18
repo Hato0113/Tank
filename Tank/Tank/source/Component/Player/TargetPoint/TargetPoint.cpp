@@ -21,7 +21,7 @@ TargetPoint::~TargetPoint()
 	//-- ポイント用オブジェクトを削除 --
 	if (!m_MeshArray.empty())
 		for (auto obj : m_MeshArray)
-			obj->SetState(false);
+			obj->SetEnable(false);
 }
 
 void TargetPoint::Update()

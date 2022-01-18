@@ -49,13 +49,13 @@ void BulletBase::OnCollisionEnter(Collider* other)
 		//-- 無敵中 --
 		if (ResidentFlagManager::GetData().GamePlay.Player.Invincible && tag == "Player")
 		{
-			parent->SetState(false);
+			parent->SetEnable(false);
 			return;
 		}
 
 		//-- 通常処理 --
-		parent->SetState(false);
-		other->parent->SetState(false);
+		parent->SetEnable(false);
+		other->parent->SetEnable(false);
 
 		//-- エフェクト生成 --
 		auto obj = Object::Create("testEffect");

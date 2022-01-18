@@ -68,6 +68,8 @@ bool SpriteManager::Load(SpriteType type, std::string fileName,TextureID id,int 
 	pSpriteManager->TexInfoMap[type].TexID = id;
 	pSpriteManager->TexInfoMap[type].Width = texWidth;
 	pSpriteManager->TexInfoMap[type].Height = texHeight;
+
+	ifs.close();
 	
 	return true;
 }

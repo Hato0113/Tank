@@ -117,7 +117,7 @@ void TitleBall::Update()
 	if ((m_HitCount += (hit ? 1 : 0)) >= maxHit)
 	{
 		//オブジェクト削除
-		parent->SetState(false);
+		parent->SetEnable(false);
 		//パーティクル生成
 		BallParticle::CreateParticle(parent->GetScene(), m_Pos, m_Color);
 	}
