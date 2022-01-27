@@ -16,7 +16,7 @@ int WindowInfo::m_ScreenWidth = 1280;
 int WindowInfo::m_ScreenHeight = 720;
 int WindowInfo::m_GUIWindowWidth = 540;
 int WindowInfo::m_GUIWindowHeight = 260;
-bool WindowInfo::m_DebugGUIFlag = true;		//GUI使用フラグ
+bool WindowInfo::m_DebugGUIFlag = false;		//GUI使用フラグ
 
 /*
 	エントリポイント

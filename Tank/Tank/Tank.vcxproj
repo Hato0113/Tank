@@ -144,6 +144,7 @@
       <AdditionalIncludeDirectories>..\DirectXTex;..\Assimp\include;$(ProjectDir)/source/</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

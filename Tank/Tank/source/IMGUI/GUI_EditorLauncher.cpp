@@ -21,6 +21,7 @@ using namespace IG;
 #include "GUI_ResidentData.h"
 #include "GUI_SystemFlag.h"
 #include "GUI_LevelEditor.h"
+#include "Scene\SceneManager.h"
 
 //-- Ã“Iƒƒ“ƒo --
 std::map<std::string, IG::Editor*> Launcher::m_WindowMap;
@@ -78,6 +79,10 @@ void IG::Launcher::Draw()
 			if (ImGui::MenuItem("Exit"))
 			{
 				tank::Application::SetGameFlag(false);
+			}
+			if (ImGui::MenuItem("TitleScene"))
+			{
+				SceneManager::GetInstance().SetNextChange(SceneType::Title);
 			}
 			ImGui::EndMenu();
 		}

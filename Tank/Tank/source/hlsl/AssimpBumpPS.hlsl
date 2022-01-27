@@ -70,7 +70,7 @@ float4 main(VS_OUTPUT input) : SV_Target0
 
 	if (vLightDir.x != 0.0f || vLightDir.y != 0.0f || vLightDir.z != 0.0f) {
 		float3 L = normalize(-input.TexSpaceLight);					// 光源へのベクトル
-		float3 N = g_NormalTex.Sample(g_sampler,input.Tex) * 2.0f - 1.0f;	// 法線ベクトル
+		float3 N = g_NormalTex.Sample(g_sampler,input.Tex).xyz * 2.0f - 1.0f;	// 法線ベクトル
 		float d = dot(N, L);
 		return float4(d, d, d, 1.0f);
 		float3 V = normalize(vCameraPos.xyz - input.PosForPS);// 視点へのベクトル
